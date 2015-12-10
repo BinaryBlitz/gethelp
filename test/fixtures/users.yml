@@ -7,20 +7,23 @@
 #  last_name    :string
 #  email        :string
 #  phone_number :string
+#  api_token    :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  first_name: MyString
-  last_name: MyString
-  email: MyString
-  phone_number: MyString
+foo:
+  first_name: Foo
+  last_name: Bar
+  email: foo@bar.com
+  phone_number: +71112223344
+  api_token: <%= SecureRandom.base64 %>
 
 two:
-  first_name: MyString
-  last_name: MyString
-  email: MyString
-  phone_number: MyString
+  first_name: Baz
+  last_name: Qux
+  email: baz@qux.com
+  phone_number: +79998887766
+  api_token: <%= SecureRandom.base64 %>
