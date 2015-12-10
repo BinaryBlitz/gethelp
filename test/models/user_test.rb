@@ -7,6 +7,7 @@
 #  last_name    :string
 #  email        :string
 #  phone_number :string
+#  api_token    :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #
