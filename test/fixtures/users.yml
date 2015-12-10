@@ -12,8 +12,6 @@
 #  updated_at   :datetime         not null
 #
 
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 foo:
   first_name: Foo
   last_name: Bar
@@ -21,7 +19,7 @@ foo:
   phone_number: +71112223344
   api_token: <%= SecureRandom.base64 %>
 
-two:
+baz:
   first_name: Baz
   last_name: Qux
   email: baz@qux.com
