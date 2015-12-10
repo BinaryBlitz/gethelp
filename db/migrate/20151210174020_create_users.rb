@@ -5,6 +5,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :last_name
       t.string :email
       t.string :phone_number
+      t.string :api_token
 
       t.timestamps null: false
     end
