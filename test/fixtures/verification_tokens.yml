@@ -1,0 +1,4 @@
+verification_token:
+  token: <%= SecureRandom.hex %>
+  code: 1234
+  phone_number: '+71234567890'
