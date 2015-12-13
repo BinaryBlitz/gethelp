@@ -1,0 +1,36 @@
+# == Schema Information
+#
+# Table name: orders
+#
+#  id          :integer          not null, primary key
+#  user_id     :integer
+#  course      :string
+#  grade       :integer
+#  category    :string
+#  university  :string
+#  faculty     :string
+#  email       :string
+#  starts_at   :datetime
+#  due_by      :datetime
+#  description :text
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+exam:
+  user: foo
+  course: Math
+  grade: 1
+  category: urgent
+  starts_at: 2016-01-11 10:27:42
+  due_by: 2016-01-11 12:27:42
+  description: Some description.
+
+assignment:
+  user: baz
+  course: English
+  grade: 2
+  category: homework
+  starts_at: 2015-12-10 23:27:42
+  due_by: 2016-02-10 23:27:42
+  description: Lorem ipsum dolor sit amet.
