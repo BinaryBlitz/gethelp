@@ -12,6 +12,7 @@ gem 'jbuilder'
 
 gem 'has_secure_token'
 gem 'httparty'
+gem 'phony_rails'
 
 group :development, :test do
   gem 'byebug'
