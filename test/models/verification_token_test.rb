@@ -5,7 +5,7 @@
 #  id           :integer          not null, primary key
 #  token        :string
 #  phone_number :string
-#  code         :string
+#  code         :integer
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #

@@ -10,9 +10,9 @@
 #
 
 foo:
-  phone_number: +71112223344
+  phone_number: '+71112223344'
   api_token: <%= SecureRandom.base64 %>
 
 baz:
-  phone_number: +79998887766
+  phone_number: '+79998887766'
   api_token: <%= SecureRandom.base64 %>

@@ -14,9 +14,9 @@ class VerificationTokensTest < ActionDispatch::IntegrationTest
   end
 
   test 'validate' do
-    patch "/verification_tokens/#{@verification_token.token}", phone_number: @user.phone_number
+    patch "/verification_tokens/#{@verification_token.token}",
+          phone_number: @user.phone_number, code: @verification_token.code
     assert_response :success
-    assert_not_nil json_response[:id]
-    assert_not_nil json_response[:first_name]
+    assert_not_nil json_response[:api_token]
   end
 end
