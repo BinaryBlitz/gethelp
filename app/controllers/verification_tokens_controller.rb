@@ -1,4 +1,6 @@
 class VerificationTokensController < ApplicationController
+  skip_before_action :restrict_access
+
   def create
     @verification_token = VerificationToken.new(verification_token_params)
 
