@@ -11,6 +11,7 @@ gem 'turbolinks'
 gem 'jbuilder'
 
 gem 'has_secure_token'
+gem 'httparty'
 
 group :development, :test do
   gem 'byebug'
