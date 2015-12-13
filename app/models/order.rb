@@ -19,4 +19,6 @@
 
 class Order < ActiveRecord::Base
   belongs_to :user
+
+  validates :starts_at, :due_by, overlap: true
 end
