@@ -10,7 +10,14 @@
 #  updated_at   :datetime         not null
 #
 
-verification_token:
-  token: <%= SecureRandom.hex %>
-  code: 1234
-  phone_number: '+71234567890'
+class VerificationToken < ActiveRecord::Base
+  before_validation :generate_code
+
+  has_secure_token
+
+  private
+
+  def generate_code
+    self.code = Random.new.rand(1000..9999)
+  end
+end

@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: verification_tokens
+#
+#  id           :integer          not null, primary key
+#  token        :string
+#  phone_number :string
+#  code         :string
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
 require 'test_helper'
 
 class VerificationTokenTest < ActiveSupport::TestCase
@@ -7,15 +19,8 @@ class VerificationTokenTest < ActiveSupport::TestCase
 
   test 'generates code and token before creation' do
     token = VerificationToken.new(phone_number: @verification_token.phone_number)
-    token.valid?
+    token.save
     assert_not_nil token.code
     assert_not_nil token.token
-  end
-
-  test 'sends SMS with verification code' do
-    token = VerificationToken.new(phone_number: @verification_token.phone_number)
-    token.mock(:send_verification_code, nil)
-    token.save
-    token.verify
   end
 end
