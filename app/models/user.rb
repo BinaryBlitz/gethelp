@@ -10,4 +10,7 @@
 #
 
 class User < ActiveRecord::Base
+  phony_normalize :phone_number, default_country_code: 'RU'
+
+  validates :phone_number, presence: true, phony_plausible: true
 end
