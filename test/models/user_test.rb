@@ -3,9 +3,6 @@
 # Table name: users
 #
 #  id           :integer          not null, primary key
-#  first_name   :string
-#  last_name    :string
-#  email        :string
 #  phone_number :string
 #  api_token    :string
 #  created_at   :datetime         not null
@@ -17,17 +14,6 @@ require 'test_helper'
 class UserTest < ActiveSupport::TestCase
   setup do
     @user = users(:foo)
-  end
-
-  test 'email is downcased before validations' do
-    @user.email = 'FOO@BAR.COM'
-    @user.valid?
-    assert_equal 'foo@bar.com', @user.email
-  end
-
-  test 'email uniqueness' do
-    dup = @user.dup
-    assert @user.invalid?
   end
 
   test 'phone number is normalized' do
