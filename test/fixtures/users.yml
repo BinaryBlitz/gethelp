@@ -10,15 +10,9 @@
 #
 
 foo:
-  first_name: Foo
-  last_name: Bar
-  email: foo@bar.com
   phone_number: +71112223344
   api_token: <%= SecureRandom.base64 %>
 
 baz:
-  first_name: Baz
-  last_name: Qux
-  email: baz@qux.com
   phone_number: +79998887766
   api_token: <%= SecureRandom.base64 %>
