@@ -2,13 +2,15 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.2.5'
 gem 'pg', '~> 0.15'
+
 gem 'sass-rails'
 gem 'uglifier'
 gem 'coffee-rails'
-
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder'
+
+gem 'has_secure_token'
 
 group :development, :test do
   gem 'byebug'
