@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  before_action :set_order, only: [:update]
+
   def create
     @order = current_user.orders.build(order_params)
 
@@ -9,11 +11,23 @@ class OrdersController < ApplicationController
     end
   end
 
+  def update
+    if @order.update(order_params)
+      head :ok
+    else
+      render json: @order.errors, status: 422
+    end
+  end
+
   private
+
+  def set_order
+    @order = current_user.orders.find(params[:id])
+  end
 
   def order_params
     params.require(:order).permit(
-      :course, :grade, :category, :university, :faculty, :email, :starts_at, :due_by
+      :course, :grade, :category, :university, :faculty, :email, :starts_at, :due_by, :description
     )
   end
 end
