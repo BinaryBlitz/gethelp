@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
   phony_normalize :phone_number, default_country_code: 'RU'
 
   has_many :orders
+  has_many :messages
 
   validates :phone_number, presence: true, uniqueness: true, phony_plausible: true
   validate :verified_phone_number
