@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  resource :user, only: [:show, :create, :destroy]
+  root 'web/pages#home'
 
+  namespace :web do
+  end
+
+  resource :user, only: [:show, :create, :destroy]
   resources :orders, only: [:index, :create, :update] do
     resources :messages, shallow: true
   end
