@@ -1,6 +1,10 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:update]
 
+  def index
+    @orders = current_user.orders
+  end
+
   def create
     @order = current_user.orders.build(order_params)
 

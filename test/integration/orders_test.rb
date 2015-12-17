@@ -5,7 +5,13 @@ class OrdersTest < ActionDispatch::IntegrationTest
     @order = orders(:order)
   end
 
-  test "create" do
+  test 'list' do
+    get '/orders.json', api_token: api_token
+    assert_response :success
+    assert json_response.count > 0
+  end
+
+  test 'create' do
     assert_difference 'Order.count' do
       post '/orders.json', api_token: api_token, order: {
         course: @order.course,
@@ -22,7 +28,7 @@ class OrdersTest < ActionDispatch::IntegrationTest
     end
   end
 
-  test "update" do
+  test 'update' do
     attributes = { description: 'New description.' }
     patch "/orders/#{@order.id}.json", api_token: api_token, order: attributes
     assert_response :ok
