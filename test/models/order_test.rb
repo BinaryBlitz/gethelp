@@ -26,6 +26,11 @@ class OrderTest < ActiveSupport::TestCase
     @order = orders(:order)
   end
 
+  test 'user is present' do
+    @order.user = nil
+    assert @order.invalid?
+  end
+
   test 'category can be either urgent or homework' do
     valid_categories = %w(urgent homework)
     valid_categories.each do |category|
@@ -66,7 +71,7 @@ class OrderTest < ActiveSupport::TestCase
 
   test 'email is downcased before save' do
     email = 'FOO@BAR.COM'
-    homework = Order.create(email: email, due_by: Time.zone.now + 1.year)
+    homework = Order.create(email: email, due_by: Time.zone.now + 1.year, user: @order.user)
     assert_equal email.downcase, homework.email
   end
 end
