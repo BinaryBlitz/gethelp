@@ -16,6 +16,8 @@ class VerificationToken < ActiveRecord::Base
   before_validation :generate_code
   after_create :send_verification_code
 
+  validates :phone_number, presence: true
+
   has_secure_token
 
   def verify(code)
