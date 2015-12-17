@@ -35,4 +35,12 @@ class OrderTest < ActiveSupport::TestCase
     @exam.starts_at = Time.zone.now - 1.day
     assert @exam.invalid?
   end
+
+  test 'email is downcased before save' do
+    email = 'FOO@BAR.COM'
+    assignment = Order.new
+    assignment.email = email
+    assignment.save
+    assert_equal email.downcase, assignment.email
+  end
 end

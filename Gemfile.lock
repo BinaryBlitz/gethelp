@@ -145,8 +145,6 @@ GEM
     uglifier (2.7.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
-    validates_overlap (0.6.0)
-      rails (>= 3.0.0)
     web-console (2.2.1)
       activemodel (>= 4.0)
       binding_of_caller (>= 0.7.2)
@@ -172,7 +170,6 @@ DEPENDENCIES
   spring
   turbolinks
   uglifier
-  validates_overlap
   web-console
 
 BUNDLED WITH
