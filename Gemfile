@@ -16,6 +16,7 @@ gem 'has_secure_token'
 gem 'httparty'
 gem 'phony_rails'
 gem 'enumerize'
+gem 'carrierwave'
 
 group :development, :test do
   gem 'byebug'
