@@ -1,0 +1,29 @@
+# == Schema Information
+#
+# Table name: messages
+#
+#  id         :integer          not null, primary key
+#  content    :text
+#  category   :string
+#  user_id    :integer
+#  order_id   :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+message:
+  content: Content
+  category: user
+  user: foo
+  order: order
+
+operator_message:
+  content: Content
+  category: operator
+  order: order
+
+complaint:
+  content: Content
+  category: user
+  user: foo
+  order: order
