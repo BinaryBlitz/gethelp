@@ -24,7 +24,7 @@ class Message < ActiveRecord::Base
   extend Enumerize
   enumerize :category, in: [:user, :operator, :complaint], default: :user
 
-  mount_uploader :image, ImageUploader
+  mount_base64_uploader :image, ImageUploader
 
   private
 
