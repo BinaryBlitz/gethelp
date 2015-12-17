@@ -10,7 +10,19 @@
 #
 
 class User < ActiveRecord::Base
+  attr_accessor :verification_token
+
   phony_normalize :phone_number, default_country_code: 'RU'
 
   validates :phone_number, presence: true, uniqueness: true, phony_plausible: true
+  validate :verified_phone_number
+
+  has_secure_token :api_token
+
+  private
+
+  def verified_phone_number
+    return if VerificationToken.verified.find_by(phone_number: phone_number)
+    errors.add(:phone_number, "isn't verified")
+  end
 end

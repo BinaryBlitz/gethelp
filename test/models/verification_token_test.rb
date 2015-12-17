@@ -8,6 +8,7 @@
 #  code         :integer
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  verified     :boolean          default(FALSE)
 #
 
 require 'test_helper'

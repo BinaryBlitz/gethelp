@@ -8,6 +8,7 @@
 #  code         :integer
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  verified     :boolean          default(FALSE)
 #
 
 class VerificationToken < ActiveRecord::Base
@@ -20,12 +21,15 @@ class VerificationToken < ActiveRecord::Base
 
   has_secure_token
 
+  scope :verified, -> { where(verified: true) }
+
   def verify(code)
-  self.code == code
-end
+    return false unless self.code == code
+    update(verified: true)
+  end
 
   def user
-    @user ||= User.find_by(phone_number: phone_number)
+    User.find_by(phone_number: phone_number)
   end
 
   def send_verification_code
