@@ -18,7 +18,15 @@ class Message < ActiveRecord::Base
   validates :content, presence: true
   validates :order, presence: true
   validates :user, presence: true, if: 'category && !category.operator?'
+  validate :not_operator
 
   extend Enumerize
   enumerize :category, in: [:user, :operator, :complaint], default: :user
+
+  private
+
+  def not_operator
+    return unless user
+    errors.add(:category, 'is not permitted') if category.operator?
+  end
 end

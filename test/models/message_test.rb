@@ -39,12 +39,21 @@ class MessageTest < ActiveSupport::TestCase
   end
 
   test 'category values are user, operator or complaint' do
-    valid_categories = %w(user operator complaint)
+    valid_categories = %i(user complaint operator)
     valid_categories.each do |category|
       @message.category = category
+      @message.user = nil if category == :operator
       assert @message.valid?
     end
     @message.category = 'test'
     assert @message.invalid?
+  end
+
+  test 'cannot be an operator message if user is present' do
+    @message.category = 'operator'
+    assert @message.invalid?
+
+    @operator_message.user = nil
+    assert @operator_message.valid?
   end
 end
