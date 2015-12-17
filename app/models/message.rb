@@ -9,6 +9,7 @@
 #  order_id   :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  image      :string
 #
 
 class Message < ActiveRecord::Base
@@ -22,6 +23,8 @@ class Message < ActiveRecord::Base
 
   extend Enumerize
   enumerize :category, in: [:user, :operator, :complaint], default: :user
+
+  mount_uploader :image, ImageUploader
 
   private
 

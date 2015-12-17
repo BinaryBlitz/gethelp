@@ -17,6 +17,7 @@ gem 'httparty'
 gem 'phony_rails'
 gem 'enumerize'
 gem 'carrierwave'
+gem 'mini_magick'
 
 group :development, :test do
   gem 'byebug'
