@@ -37,6 +37,16 @@ class OrderTest < ActiveSupport::TestCase
     assert @order.invalid?
   end
 
+  test 'due_by is always present' do
+    @order.due_by = nil
+    assert @order.invalid?
+  end
+
+  test "starts_at is present if urgent" do
+    @exam.starts_at = nil
+    assert @exam.invalid?
+  end
+
   test 'starts_at and due_by do not overlap' do
     @exam.starts_at = Time.zone.now + 1.day
     @exam.due_by = Time.zone.now - 1.day
@@ -44,15 +54,19 @@ class OrderTest < ActiveSupport::TestCase
   end
 
   test 'starts_at later than now' do
+    new_exam = @exam.dup
+    new_exam.starts_at = Time.zone.now - 1.day
+    assert new_exam.invalid?
+  end
+
+  test 'validates starts_at only on create' do
     @exam.starts_at = Time.zone.now - 1.day
-    assert @exam.invalid?
+    assert @exam.valid?
   end
 
   test 'email is downcased before save' do
     email = 'FOO@BAR.COM'
-    homework = Order.new
-    homework.email = email
-    homework.save
+    homework = Order.create(email: email, due_by: Time.zone.now + 1.year)
     assert_equal email.downcase, homework.email
   end
 end

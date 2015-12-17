@@ -21,11 +21,13 @@ class Order < ActiveRecord::Base
   belongs_to :user
   before_save -> { self.email.downcase! if self.email }
 
+  validates :due_by, presence: true
+  validates :starts_at, presence: true, if: 'category && category.urgent?'
   validate :end_time_valid?
-  validate :start_time_valid?
+  validate :start_time_valid?, on: :create
 
   extend Enumerize
-  enumerize :category, in: [:urgent, :homework]
+  enumerize :category, in: [:urgent, :homework], default: :homework
 
   private
 
