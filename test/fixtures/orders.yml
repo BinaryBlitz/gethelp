@@ -17,6 +17,15 @@
 #  updated_at  :datetime         not null
 #
 
+order:
+  user: foo
+  course: Geography
+  grade: 1
+  category: homework
+  starts_at: 2016-01-11 10:27:42
+  due_by: 2016-01-11 12:27:42
+  description: Some description.
+
 exam:
   user: foo
   course: Math
@@ -26,7 +35,7 @@ exam:
   due_by: 2016-01-11 12:27:42
   description: Some description.
 
-assignment:
+homework:
   user: baz
   course: English
   grade: 2

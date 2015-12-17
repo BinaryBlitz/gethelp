@@ -24,6 +24,9 @@ class Order < ActiveRecord::Base
   validate :end_time_valid?
   validate :start_time_valid?
 
+  extend Enumerize
+  enumerize :category, in: [:urgent, :homework]
+
   private
 
   def end_time_valid?

@@ -22,7 +22,19 @@ require 'test_helper'
 class OrderTest < ActiveSupport::TestCase
   setup do
     @exam = orders(:exam)
-    @assignment = orders(:assignment)
+    @homework = orders(:homework)
+    @order = orders(:order)
+  end
+
+  test 'category can be either urgent or homework' do
+    valid_categories = %w(urgent homework)
+    valid_categories.each do |category|
+      @order.category = category
+      assert @order.valid?
+    end
+
+    @order.category = 'test'
+    assert @order.invalid?
   end
 
   test 'starts_at and due_by do not overlap' do
@@ -38,9 +50,9 @@ class OrderTest < ActiveSupport::TestCase
 
   test 'email is downcased before save' do
     email = 'FOO@BAR.COM'
-    assignment = Order.new
-    assignment.email = email
-    assignment.save
-    assert_equal email.downcase, assignment.email
+    homework = Order.new
+    homework.email = email
+    homework.save
+    assert_equal email.downcase, homework.email
   end
 end
