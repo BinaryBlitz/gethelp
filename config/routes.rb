@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   namespace :web do
     resources :verification_tokens, param: :token
+    resource :user, only: [:show]
   end
 
   resource :user, only: [:show, :create, :destroy]

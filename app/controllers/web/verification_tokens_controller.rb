@@ -20,18 +20,18 @@ class Web::VerificationTokensController < ApplicationController
   end
 
   def update
-    if @verification_token.verify(entered_code)
-      if @user = User.find_by(phone_number: @verification_token.phone_number)
-        session[:user_id] = @user.id
-        redirect_to [:web, @user]
-      else
-        redirect_to new_web_user_path(
-          phone_number: @verification_token.phone_number,
-          verification_token: @verification_token.token
-        )
-      end
+    unless @verification_token.verify(entered_code)
+      render :edit and return
+    end
+
+    @user = User.find_or_initialize_by(phone_number: @verification_token.phone_number)
+    @user.verification_token = @verification_token.token
+
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to web_user_path
     else
-      render :edit
+      redirect_to root_path
     end
   end
 
