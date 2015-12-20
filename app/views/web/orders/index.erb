@@ -1,0 +1,27 @@
+<h1>Заказы</h1>
+
+<div class="form-group">
+  <%= link_to 'Новый заказ', new_web_order_path, class: 'btn btn-default' %>
+</div>
+
+<table class="table">
+  <thead>
+    <th>№</th>
+    <th>Предмет</th>
+    <th>Дата сдачи</th>
+    <th></th>
+  </thead>
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.id %></td>
+        <td><%= order.course %></td>
+        <td><%= order.due_by.to_formatted_s(:short) %></td>
+        <td>
+          <%= link_to 'Изменить', edit_web_order_path(order), class: 'btn btn-default' %>
+          <%= link_to 'Удалить', [:web, order], method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

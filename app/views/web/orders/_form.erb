@@ -1,0 +1,50 @@
+<%= form_for [:web, @order] do |f| %>
+  <div class="form-group">
+    <%= f.label :course %>
+    <%= f.text_field :course, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :grade %>
+    <%= f.text_field :grade, class: 'form-control' %>
+  </div>
+
+  <!-- <div class="form-group">
+    <%#= f.label :category %>
+    <%#= f.text_field :category, class: 'form-control' %>
+  </div> -->
+
+  <div class="form-group">
+    <%= f.label :university %>
+    <%= f.text_field :university, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :faculty %>
+    <%= f.text_field :faculty, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.text_field :email, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :starts_at %>
+    <%= f.text_field :starts_at, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :due_by %>
+    <%= f.text_field :due_by, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit class:'btn btn-primary' %>
+  </div>
+<% end %>

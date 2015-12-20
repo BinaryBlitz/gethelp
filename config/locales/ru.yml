@@ -21,13 +21,26 @@
 
 ru:
   activerecord:
+    models:
+      order: заказ
     attributes:
       verification_token:
         phone_number: Номер телефона
         code: Код подтверждения
         entered_code: Полученный код
+      order:
+        course: Предмет
+        grade: Курс
+        university: Вуз
+        faculty: Факультет
+        email: Email
+        starts_at: Время начала
+        due_by: Время окончания
+        description: Описание
   helpers:
     submit:
+      create: "Создать %{model}"
+      update: "Обновить %{model}"
       verification_token:
         create: Отправить SMS
         update: Подтвердить номер телефона
