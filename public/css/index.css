@@ -38,7 +38,7 @@
 {
 	z-index: 56;
 	height: 837px;
-	background: transparent url("/images/u78-grad.png") repeat-x left top;
+	background: transparent url("../images/u78-grad.png") repeat-x left top;
 	background: -webkit-gradient(linear, center top, center bottom, color-stop(74%, #000000),to(rgba(0,0,0,0)));
 	background: -webkit-linear-gradient(top,#000000 74%,rgba(0,0,0,0) );
 	background: linear-gradient(to bottom,#000000 74%,rgba(0,0,0,0) );
@@ -73,7 +73,7 @@
 	min-height: 545px;
 	border-style: none;
 	border-color: transparent;
-	background: #191919 url("/images/hero.jpg") no-repeat left top;
+	background: #191919 url("../images/hero.jpg") no-repeat left top;
 	background-size: cover;
 }
 
@@ -153,13 +153,13 @@
 	margin-right: -10000px;
 	margin-top: 158px;
 	left: 272px;
-	background: #2D2D2D url("/images/%d0%b1%d0%b5%d0%b7%20%d1%82%d0%b5%d0%ba%d1%81%d1%82%d0%b0.png") no-repeat left top;
+	background: #2D2D2D url("../images/%d0%b1%d0%b5%d0%b7%20%d1%82%d0%b5%d0%ba%d1%81%d1%82%d0%b0.png") no-repeat left top;
 	background-size: contain;
 }
 
 .hidpi #u103
 {
-	background-image: url("/images/%d0%b1%d0%b5%d0%b7%20%d1%82%d0%b5%d0%ba%d1%81%d1%82%d0%b0_2x.png");
+	background-image: url("../images/%d0%b1%d0%b5%d0%b7%20%d1%82%d0%b5%d0%ba%d1%81%d1%82%d0%b0_2x.png");
 }
 
 #u103_position_content
@@ -219,23 +219,23 @@
 	margin-right: -10000px;
 	margin-top: 296px;
 	left: 410px;
-	background: url("/images/u202.png") no-repeat 0px 0px;
+	background: url("../images/u202.png") no-repeat 0px 0px;
 }
 
 #u202:hover
 {
-	background: url("/images/u202-r.png") no-repeat 0px 0px;
+	background: url("../images/u202-r.png") no-repeat 0px 0px;
 }
 
 .hidpi #u202
 {
-	background-image: url("/images/u202_2x.png");
+	background-image: url("../images/u202_2x.png");
 	background-size: 356px 72px;
 }
 
 .hidpi #u202:hover
 {
-	background-image: url("/images/u202-r_2x.png");
+	background-image: url("../images/u202-r_2x.png");
 	background-size: 356px 72px;
 }
 
@@ -655,7 +655,7 @@
 	border-radius: 5px;
 	position: relative;
 	margin-right: -10000px;
-	background: transparent url("/images/appstore%402x.png") no-repeat center center;
+	background: transparent url("../images/appstore%402x.png") no-repeat center center;
 }
 
 #u246:hover
@@ -664,18 +664,18 @@
 	height: 74px;
 	min-height: 0px;
 	margin: 0px -10000px 0px 0px;
-	background: #3D3D3D url("/images/appstore_hov%402x.png") no-repeat center center;
+	background: #3D3D3D url("../images/appstore_hov%402x.png") no-repeat center center;
 }
 
 .hidpi #u246
 {
-	background-image: url("/images/appstore%402x_2x.png");
+	background-image: url("../images/appstore%402x_2x.png");
 	background-size: 67.5px 19.5px;
 }
 
 .hidpi #u246:hover
 {
-	background-image: url("/images/appstore_hov%402x_2x.png");
+	background-image: url("../images/appstore_hov%402x_2x.png");
 	background-size: 67.5px 19.5px;
 }
 
@@ -691,7 +691,7 @@
 	position: relative;
 	margin-right: -10000px;
 	left: 274px;
-	background: transparent url("/images/playstore%402x.png") no-repeat center center;
+	background: transparent url("../images/playstore%402x.png") no-repeat center center;
 }
 
 #u259:hover
@@ -700,18 +700,18 @@
 	height: 74px;
 	min-height: 0px;
 	margin: 0px -10000px 0px 0px;
-	background: #3D3D3D url("/images/playstore_hov%402x.png") no-repeat center center;
+	background: #3D3D3D url("../images/playstore_hov%402x.png") no-repeat center center;
 }
 
 .hidpi #u259
 {
-	background-image: url("/images/playstore%402x_2x.png");
+	background-image: url("../images/playstore%402x_2x.png");
 	background-size: 70px 19.5px;
 }
 
 .hidpi #u259:hover
 {
-	background-image: url("/images/playstore_hov%402x_2x.png");
+	background-image: url("../images/playstore_hov%402x_2x.png");
 	background-size: 70px 19.5px;
 }
 
@@ -774,7 +774,7 @@
 	border-color: transparent;
 	margin-right: -10000px;
 	position: relative;
-	background: transparent url("/images/img_2015-12-15%2015-43-02.jpg") no-repeat left top;
+	background: transparent url("../images/img_2015-12-15%2015-43-02.jpg") no-repeat left top;
 	background-size: cover;
 }
 
@@ -787,7 +787,7 @@
 	border-color: transparent;
 	margin-right: -10000px;
 	position: relative;
-	background: transparent url("/images/img_2015-12-15%2015-43-02.jpg") no-repeat center center;
+	background: transparent url("../images/img_2015-12-15%2015-43-02.jpg") no-repeat center center;
 	background-size: cover;
 }
 
@@ -800,13 +800,13 @@
 	border-color: transparent;
 	margin-right: -10000px;
 	position: relative;
-	background: transparent url("/images/img_2015-12-15%2015-43-02.jpg") no-repeat left top;
+	background: transparent url("../images/img_2015-12-15%2015-43-02.jpg") no-repeat left top;
 	background-size: cover;
 }
 
 .hidpi #u125,.hidpi #u143,.hidpi #u145
 {
-	background-image: url("/images/img_2015-12-15%2015-43-02_2x.jpg");
+	background-image: url("../images/img_2015-12-15%2015-43-02_2x.jpg");
 }
 
 #u129
@@ -1681,45 +1681,45 @@
 	position: relative;
 	margin-right: -10000px;
 	margin-top: 247px;
-	background: url("/images/u1291-17.png") no-repeat 0px 0px;
+	background: url("../images/u1291-17.png") no-repeat 0px 0px;
 }
 
 #u1291-17:hover
 {
-	background: url("/images/u1291-17-r.png") no-repeat 0px 0px;
+	background: url("../images/u1291-17-r.png") no-repeat 0px 0px;
 }
 
 #u1291-17:active
 {
-	background: url("/images/u1291-17-m.png") no-repeat 0px 0px;
+	background: url("../images/u1291-17-m.png") no-repeat 0px 0px;
 }
 
 #widgetu1279.frm-sub-st #u1291-17
 {
-	background: url("/images/u1291-17-fs.png") no-repeat 0px 0px;
+	background: url("../images/u1291-17-fs.png") no-repeat 0px 0px;
 }
 
 .hidpi #u1291-17
 {
-	background-image: url("/images/u1291-17_2x.png");
+	background-image: url("../images/u1291-17_2x.png");
 	background-size: 131px 31px;
 }
 
 .hidpi #u1291-17:hover
 {
-	background-image: url("/images/u1291-17-r_2x.png");
+	background-image: url("../images/u1291-17-r_2x.png");
 	background-size: 131px 31px;
 }
 
 .hidpi #u1291-17:active
 {
-	background-image: url("/images/u1291-17-m_2x.png");
+	background-image: url("../images/u1291-17-m_2x.png");
 	background-size: 131px 31px;
 }
 
 .hidpi #widgetu1279.frm-sub-st #u1291-17
 {
-	background-image: url("/images/u1291-17-fs_2x.png");
+	background-image: url("../images/u1291-17-fs_2x.png");
 	background-size: 131px 31px;
 }
 
@@ -2487,3 +2487,4 @@ body
 {
 	clear: both;
 }
+
