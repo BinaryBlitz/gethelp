@@ -1,0 +1,10 @@
+<%= form_for [:web, @verification_token], url: web_verification_token_path(@verification_token.token) do |f| %>
+  <div class="form-group">
+    <%= f.label :entered_code %>
+    <%= f.number_field :entered_code, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit %>
+  </div>
+<% end %>

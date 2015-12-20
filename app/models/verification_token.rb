@@ -14,7 +14,9 @@
 class VerificationToken < ActiveRecord::Base
   SMS_VERIFICATION_URL = 'http://sms.ru/sms/send'
 
-  before_validation :generate_code
+  attr_accessor :entered_code
+
+  before_create :generate_code
   after_create :send_verification_code
 
   validates :phone_number, presence: true

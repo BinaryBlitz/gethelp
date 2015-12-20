@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'web/pages#home'
 
   namespace :web do
+    resources :verification_tokens, param: :token
   end
 
   resource :user, only: [:show, :create, :destroy]
