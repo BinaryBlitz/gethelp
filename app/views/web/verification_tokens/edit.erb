@@ -1,3 +1,5 @@
+<h1>Введите код подтверждения</h1>
+
 <%= form_for [:web, @verification_token], url: web_verification_token_path(@verification_token.token) do |f| %>
   <div class="form-group">
     <%= f.label :entered_code %>
