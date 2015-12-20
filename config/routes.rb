@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   namespace :web do
     resources :verification_tokens, param: :token
+    resources :deposits, only: [:index]
     resource :user, only: [:show]
   end
 
