@@ -1,1 +1,17 @@
-<h1>Пользователь <%= @user.id %></h1>
+<div class="page-header">
+  <h1>Профиль</h1>
+</div>
+
+<div class="form-group">
+  <p>
+    <strong>Номер телефона: </strong>
+    <%= @user.phone_number %>
+  </p>
+</div>
+
+<div class="form-group">
+  <p>
+    <strong>Баланс: </strong>
+    <%= '0' %>
+  </p>
+</div>
