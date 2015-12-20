@@ -17,8 +17,22 @@ $brand-primary: rgb(255, 95, 0);
 
 $navbar-default-color: white;
 $navbar-default-link-color: white;
+$navbar-default-link-hover-bg: darken($brand-primary, 5);
 $navbar-default-brand-hover-color: black;
 $navbar-default-toggle-icon-bar-bg: white;
 $navbar-default-bg: rgb(255, 95, 0);
 
 @import 'bootstrap';
+
+.payment-options {
+  a {
+    background: $brand-primary;
+    color: white;
+    border-color: lighten($brand-primary, 50);
+
+    &:hover {
+      background: darken($brand-primary, 5);
+      color: black;
+    }
+  }
+}
