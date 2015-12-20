@@ -11,6 +11,7 @@ gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder'
+gem 'bootstrap-sass'
 
 gem 'has_secure_token'
 gem 'httparty'
