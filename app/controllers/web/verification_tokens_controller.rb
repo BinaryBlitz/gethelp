@@ -1,5 +1,5 @@
-class Web::VerificationTokensController < ApplicationController
-  skip_before_action :restrict_access
+class Web::VerificationTokensController < Web::WebController
+  skip_before_action :authenticate_user!
   before_action :set_verification_token, only: [:edit, :update]
 
   def new

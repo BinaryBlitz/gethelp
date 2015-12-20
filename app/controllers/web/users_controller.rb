@@ -1,6 +1,4 @@
-class Web::UsersController < ApplicationController
-  skip_before_action :restrict_access
-
+class Web::UsersController < Web::WebController
   def show
     @user = User.find(session[:user_id])
   end

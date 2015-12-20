@@ -1,5 +1,4 @@
-class Web::OrdersController < ApplicationController
-  skip_before_action :restrict_access
+class Web::OrdersController < Web::WebController
   before_action :authenticate
   before_action :set_order, only: [:edit, :update, :destroy]
 

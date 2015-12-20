@@ -1,6 +1,4 @@
-class Web::DepositsController < ApplicationController
-  skip_before_action :restrict_access
-
+class Web::DepositsController < Web::WebController
   def index
     @user = User.find(session[:user_id])
   end
