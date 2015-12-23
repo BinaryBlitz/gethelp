@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'web/pages#home'
 
   get 'signup' => 'web/verification_tokens#new'
+  delete 'signout' => 'web/sessions#destroy'
 
   namespace :web do
     resources :verification_tokens, param: :token
