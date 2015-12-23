@@ -13,6 +13,7 @@
   <link rel="stylesheet" type="text/css" href="css/site_global.css?4108118802"/>
   <link rel="stylesheet" type="text/css" href="css/master_a-master.css?4160461972"/>
   <link rel="stylesheet" type="text/css" href="css/index.css?3879966844" id="pagesheet"/>
+  <%= stylesheet_link_tag 'landing', media: 'all', 'data-turbolinks-track' => true %>
   <!--[if lt IE 9]>
   <link rel="stylesheet" type="text/css" href="css/iefonts_index.css?174161009"/>
   <![endif]-->
@@ -50,9 +51,9 @@ var __adobewebfontsappname__ = "muse";
          <!-- /m_editable -->
          <!-- m_editable region-id="editable-static-tag-U1677" template="index.html" data-type="html" data-ice-options="disableImageResize,link" -->
          <div class="clearfix grpelem" id="u1677-4" data-muse-uid="U1677" data-muse-type="txt_frame"><!-- content -->
-           <%= link_to signup_path do %>
-            <p>Вход в личный кабинет</p>
-          <% end %>
+           <%= link_to signup_path, class: 'button-signup' do %>
+             <p>Вход в личный кабинет</p>
+            <% end %>
          </div>
          <!-- /m_editable -->
         </div>
