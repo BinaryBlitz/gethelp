@@ -29,7 +29,7 @@ class Web::VerificationTokensController < Web::WebController
 
     if @user.save
       session[:user_id] = @user.id
-      redirect_to web_user_path
+      redirect_to web_orders_path
     else
       redirect_to root_path
     end

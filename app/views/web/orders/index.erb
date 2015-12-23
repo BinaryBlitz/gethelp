@@ -18,6 +18,7 @@
         <td><%= order.course %></td>
         <td><%= order.due_by.to_formatted_s(:short) %></td>
         <td>
+          <%= link_to 'Оплатить', web_deposits_path, class: 'btn btn-primary' %>
           <%= link_to 'Изменить', edit_web_order_path(order), class: 'btn btn-default' %>
           <%= link_to 'Удалить', [:web, order], method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-danger' %>
         </td>
