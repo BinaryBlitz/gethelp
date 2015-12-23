@@ -10,6 +10,7 @@
     <th>Предмет</th>
     <th>Дата сдачи</th>
     <th>Цена</th>
+    <th>Статус</th>
     <th></th>
   </thead>
   <tbody>
@@ -19,6 +20,7 @@
         <td><%= order.course %></td>
         <td><%= order.due_by.to_formatted_s(:short) %></td>
         <td><%= '0.00 р.' %></td>
+        <td><%= 'В обработке' %></td>
         <td>
           <%= link_to 'Оплатить', web_deposits_path, class: 'btn btn-primary' %>
           <%= link_to 'Изменить', edit_web_order_path(order), class: 'btn btn-default' %>
