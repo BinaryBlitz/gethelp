@@ -3,5 +3,10 @@ a.button-signup {
   p {
     color: white;
     text-decoration: none;
+
+    &:hover {
+      color: black;
+      text-decoration: underline;
+    }
   }
 }
