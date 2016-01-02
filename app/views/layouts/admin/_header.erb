@@ -7,7 +7,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to 'GettHelp', root_path, class: 'navbar-brand' %>
+      <%= link_to 'GettHelp', admin_orders_path, class: 'navbar-brand' %>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -20,7 +20,7 @@
             <li><%= link_to 'Link', '#' %></li>
           </ul>
         </li>
-        <li><%= link_to 'Курьеры', '#' %></li>
+        <li><%= link_to 'Link', '#' %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
@@ -32,7 +32,7 @@
           </ul>
         </li>
         <% if admin_signed_in? %>
-          <li><%= link_to 'Выход', '#', method: :delete %></li>
+          <li><%= link_to 'Выход', destroy_admin_session_path, method: :delete %></li>
         <% else %>
           <li><%= link_to 'Вход', new_admin_session_path %></li>
         <% end %>
