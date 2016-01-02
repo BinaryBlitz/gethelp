@@ -20,6 +20,7 @@ gem 'enumerize'
 gem 'carrierwave'
 gem 'carrierwave-base64'
 gem 'mini_magick'
+gem 'devise'
 
 group :development, :test do
   gem 'byebug'

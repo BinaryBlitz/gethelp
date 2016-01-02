@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :admins, path: 'admin', skip: :registrations
+
   root 'web/pages#home'
 
   get 'signup' => 'web/verification_tokens#new'
