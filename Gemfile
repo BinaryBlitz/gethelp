@@ -22,6 +22,7 @@ gem 'carrierwave-base64'
 gem 'mini_magick'
 gem 'devise'
 gem 'devise-bootstrap-views'
+gem 'kaminari'
 
 group :development, :test do
   gem 'byebug'
