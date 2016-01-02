@@ -72,6 +72,7 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    devise-bootstrap-views (0.0.7)
     enumerize (1.1.0)
       activesupport (>= 3.2)
     erubis (2.7.0)
@@ -188,6 +189,7 @@ DEPENDENCIES
   carrierwave-base64
   coffee-rails
   devise
+  devise-bootstrap-views
   enumerize
   has_secure_token
   httparty
