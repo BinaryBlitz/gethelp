@@ -11,7 +11,7 @@ class RobokassaController < ApplicationController
   end
 
   def success
-    if @notification.valid_succes_signature?
+    if @notification.valid_success_signature?
       render json: { message: 'success' }
     else
       render json: { message: 'fail' }

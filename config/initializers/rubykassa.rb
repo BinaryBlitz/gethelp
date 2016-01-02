@@ -1,5 +1,5 @@
 Rubykassa.configure do |config|
-  config.login = ENV['ROBOKASSA_LOGIN']
+  config.login = Rails.application.secrets.robokassa_login
   # config.first_password = ENV['ROBOKASSA_FIRST_PASSWORD']
   # config.second_password = ENV['ROBOKASSA_SECOND_PASSWORD']
   config.first_password = Rails.application.secrets.robokassa_first_password
