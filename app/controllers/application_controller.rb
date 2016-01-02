@@ -30,4 +30,8 @@ class ApplicationController < ActionController::Base
   def set_layout
     devise_controller? ? 'admin' : false
   end
+
+  def after_sign_in_path_for(resource)
+    admin_orders_path
+  end
 end

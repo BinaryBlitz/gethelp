@@ -1,0 +1,26 @@
+<h1>Заказы</h1>
+
+<table class="table">
+  <thead>
+    <th>№</th>
+    <th>Время исполнения</th>
+    <th>Предмет</th>
+    <th>Тип</th>
+    <th>Оператор</th>
+    <th>Статус</th>
+    <th>Заказчик</th>
+  </thead>
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.id %></td>
+        <td><%= order.due_by.to_formatted_s(:short) %></td>
+        <td><%= order.course %></td>
+        <td><%= order.category %></td>
+        <td><%= "Вася" %></td>
+        <td><%= "Статус" %></td>
+        <td><%= "Заказчик" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

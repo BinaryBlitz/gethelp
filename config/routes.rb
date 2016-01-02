@@ -13,6 +13,10 @@ Rails.application.routes.draw do
     resource :user, only: [:show]
   end
 
+  namespace :admin do
+    resources :orders
+  end
+
   resource :user, only: [:show, :create, :destroy]
   resources :orders, only: [:index, :create, :update] do
     resources :messages, shallow: true
