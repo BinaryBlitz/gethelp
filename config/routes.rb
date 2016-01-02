@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :admins, path: 'admin', skip: :registrations
+
   root 'web/pages#home'
 
   get 'signup' => 'web/verification_tokens#new'
@@ -9,6 +11,10 @@ Rails.application.routes.draw do
     resources :deposits, only: [:index]
     resources :orders
     resource :user, only: [:show]
+  end
+
+  namespace :admin do
+    resources :orders
   end
 
   resource :user, only: [:show, :create, :destroy]

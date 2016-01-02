@@ -6,6 +6,10 @@ class ApplicationController < ActionController::Base
   before_action :restrict_access
   helper_method :current_user
 
+  # Devise configuration
+  skip_before_action :restrict_access, if: :devise_controller?
+  layout :set_layout
+
   protected
 
   attr_reader :current_user
@@ -21,5 +25,13 @@ class ApplicationController < ActionController::Base
     return true if @current_user
 
     @current_user = User.find_by_api_token(params[:api_token])
+  end
+
+  def set_layout
+    devise_controller? ? 'admin' : false
+  end
+
+  def after_sign_in_path_for(resource)
+    admin_orders_path
   end
 end
