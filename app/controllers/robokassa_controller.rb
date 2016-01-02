@@ -5,7 +5,7 @@ class RobokassaController < ApplicationController
   def paid
     if @notification.valid_result_signature?
       Payment.find(@notification.params['InvId']).set_paid
-      render json: { message: 'paid' }
+      render text: @notification.success
     else
       render json: { message: 'fail' }
     end
