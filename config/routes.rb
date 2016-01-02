@@ -17,6 +17,10 @@ Rails.application.routes.draw do
     resources :orders
   end
 
+  scope '/robokassa' do
+    post 'paid', 'success', 'fail', controller: 'robokassa'
+  end
+
   resource :user, only: [:show, :create, :destroy]
   resources :orders, only: [:index, :create, :update] do
     resources :messages, shallow: true
