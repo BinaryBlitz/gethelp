@@ -3,23 +3,29 @@ class RobokassaController < ApplicationController
   before_action :set_notification
 
   def paid
-    logger.debug @notification
-    render text: 'paid'
+    if @notification.valid_result_signature?
+      Payment.find(@notification.id).set_paid
+    else
+      render json: { message: 'fail' }
+    end
   end
 
   def success
-    logger.debug @notification
-    render text: 'success'
+    if @notification.valid_succes_signature?
+      render json: { message: 'success' }
+    else
+      render json: { message: 'fail' }
+    end
   end
 
   def fail
     logger.debug @notification
-    render text: 'fail'
+    render json: { message: 'fail' }
   end
 
   private
 
   def set_notification
-    @notification = Rubykassa::Notification.new request.request_parameters
+    @notification = Rubykassa::Notification.new(request.request_parameters)
   end
 end

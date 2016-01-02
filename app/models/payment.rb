@@ -22,4 +22,11 @@ class Payment < ActiveRecord::Base
     return unless valid?
     Rubykassa.pay_url(id, sum, {})
   end
+
+  def set_paid
+    Payment.transaction do
+      user.deposit(sum)
+      update(paid: true)
+    end
+  end
 end
