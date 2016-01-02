@@ -41,3 +41,12 @@ body {
 .container .text-muted {
   margin: 20px 0;
 }
+
+// Alerts
+.alert-notice {
+  @extend .alert-info !optional;
+}
+
+.alert-alert {
+  @extend .alert-danger !optional;
+}
