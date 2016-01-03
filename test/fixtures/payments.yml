@@ -1,0 +1,21 @@
+# == Schema Information
+#
+# Table name: payments
+#
+#  id         :integer          not null, primary key
+#  sum        :integer
+#  paid       :boolean          default(FALSE)
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  order_id   :integer
+#
+
+payment:
+  order: order
+  sum: 500
+  paid: false
+
+completed_payment:
+  order: exam
+  sum: 1000
+  paid: true

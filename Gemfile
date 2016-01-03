@@ -23,6 +23,7 @@ gem 'mini_magick'
 gem 'devise'
 gem 'devise-bootstrap-views'
 gem 'kaminari'
+gem 'rubykassa', github: 'BinaryBlitz/rubykassa'
 
 group :development, :test do
   gem 'byebug'

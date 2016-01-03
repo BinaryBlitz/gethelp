@@ -15,15 +15,18 @@
 #  description :text
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  sum         :integer
 #
 
 class Order < ActiveRecord::Base
   belongs_to :user
   before_save -> { self.email.downcase! if self.email }
 
+  has_one :payment
   has_many :messages
 
   validates :user, presence: true
+  validates :sum, numericality: { greater_than: 0 }, allow_blank: true
   validates :due_by, presence: true
   validates :starts_at, presence: true, if: 'category && category.urgent?'
   validate :end_time_valid?

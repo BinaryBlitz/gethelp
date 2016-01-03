@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/BinaryBlitz/rubykassa.git
+  revision: 034d1b93056b7f9bfadcc39d573d1715b2a6cee0
+  specs:
+    rubykassa (0.4.2)
+      multi_xml
+      rails (>= 3.2.18)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -204,6 +212,7 @@ DEPENDENCIES
   phony_rails
   rails (= 4.2.5)
   rails_12factor
+  rubykassa!
   sass-rails
   spring
   turbolinks

@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
 
   has_many :orders
   has_many :messages
+  has_many :payments
 
   validates :phone_number, presence: true, uniqueness: true, phony_plausible: true
   validate :verified_phone_number
