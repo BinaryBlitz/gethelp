@@ -1,3 +1,3 @@
 json.extract! @order,
               :id, :course, :grade, :category, :university, :faculty, :email,
-              :starts_at, :due_by, :description, :created_at
+              :status, :sum, :starts_at, :due_by, :description, :created_at
