@@ -37,6 +37,8 @@ class Order < ActiveRecord::Base
   enumerize :category, in: [:urgent, :homework], default: :homework
   enumerize :status, in: [:new, :pending, :paid, :completed, :rejected], default: :new
 
+  delegate :phone_number, to: :user
+
   private
 
   def end_time_valid?
