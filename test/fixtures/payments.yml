@@ -3,19 +3,19 @@
 # Table name: payments
 #
 #  id         :integer          not null, primary key
-#  user_id    :integer
 #  sum        :integer
 #  paid       :boolean          default(FALSE)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  order_id   :integer
 #
 
 payment:
-  user: foo
+  order: order
   sum: 500
   paid: false
 
 completed_payment:
-  user: foo
+  order: exam
   sum: 1000
   paid: true

@@ -15,10 +15,12 @@
 #  description :text
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  sum         :integer
 #
 
 order:
   user: foo
+  sum: 500
   course: Geography
   grade: 1
   category: homework
@@ -28,6 +30,7 @@ order:
 
 exam:
   user: foo
+  sum: 500
   course: Math
   grade: 1
   category: urgent
@@ -37,6 +40,7 @@ exam:
 
 homework:
   user: baz
+  sum: 500
   course: English
   grade: 2
   category: homework

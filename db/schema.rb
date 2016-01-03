@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160102173817) do
+ActiveRecord::Schema.define(version: 20160103111721) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,19 +60,20 @@ ActiveRecord::Schema.define(version: 20160102173817) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "sum"
   end
 
   add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
 
   create_table "payments", force: :cascade do |t|
-    t.integer  "user_id"
     t.integer  "sum"
     t.boolean  "paid",       default: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.integer  "order_id"
   end
 
-  add_index "payments", ["user_id"], name: "index_payments_on_user_id", using: :btree
+  add_index "payments", ["order_id"], name: "index_payments_on_order_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "phone_number"

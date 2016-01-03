@@ -3,20 +3,22 @@
 # Table name: payments
 #
 #  id         :integer          not null, primary key
-#  user_id    :integer
 #  sum        :integer
 #  paid       :boolean          default(FALSE)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  order_id   :integer
 #
 
 class Payment < ActiveRecord::Base
-  PAYMENT_OPTIONS = [500, 1000, 1500, 2000]
+  before_validation :set_sum
 
-  belongs_to :user
+  belongs_to :order
 
-  validates :user, presence: true
-  validates :sum, inclusion: { in: PAYMENT_OPTIONS }
+  validates :order, presence: true
+  validates :sum, numericality: { greater_than: 0 }
+
+  delegate :user, to: :order
 
   def pay_url
     return unless valid?
@@ -28,5 +30,11 @@ class Payment < ActiveRecord::Base
       user.deposit(sum)
       update(paid: true)
     end
+  end
+
+  private
+
+  def set_sum
+    self.sum = order.sum
   end
 end
