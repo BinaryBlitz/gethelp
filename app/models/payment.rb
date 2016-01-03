@@ -27,7 +27,6 @@ class Payment < ActiveRecord::Base
 
   def set_paid
     Payment.transaction do
-      user.deposit(sum)
       update(paid: true)
     end
   end
