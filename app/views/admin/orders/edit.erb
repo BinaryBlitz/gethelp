@@ -1,0 +1,12 @@
+<h1>Изменить заказ</h1>
+
+<%= form_for [:admin, @order] do |f| %>
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.email_field :email, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit class: 'btn btn-default' %>
+  </div>
+<% end %>

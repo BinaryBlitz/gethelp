@@ -16,6 +16,7 @@
 
 <% if @order.status.paid? %>
   <div class="form-group">
+    <%= link_to 'Изменить', edit_admin_order_path(@order), class: 'btn btn-default' %>
     <%= link_to 'Возврат', '#', class: 'btn btn-danger' %>
   </div>
 <% end %>

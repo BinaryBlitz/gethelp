@@ -1,5 +1,5 @@
 class Admin::OrdersController < Admin::AdminController
-  before_action :set_order, only: [:show, :update, :reject]
+  before_action :set_order, only: [:show, :edit, :update, :reject]
 
   def index
     @orders = Order.all.order(created_at: :desc).page(params[:page])
@@ -8,9 +8,12 @@ class Admin::OrdersController < Admin::AdminController
   def show
   end
 
+  def edit
+  end
+
   def update
     if @order.update(order_params)
-      redirect_to [:admin, @order], notice: 'Заказ успешно принят.'
+      redirect_to [:admin, @order], notice: 'Заказ обновлен.'
     else
       render :show
     end
@@ -28,6 +31,6 @@ class Admin::OrdersController < Admin::AdminController
   end
 
   def order_params
-    params.require(:order).permit(:sum)
+    params.require(:order).permit(:sum, :email)
   end
 end
