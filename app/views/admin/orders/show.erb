@@ -3,9 +3,13 @@
 <% if @order.status.new? %>
   <div class="form-group">
     <%= form_for [:admin, @order], html: { class: 'form-inline' } do |f| %>
-      <%= f.text_field :sum, class: 'form-control' %>
-      <%= f.submit 'Выставить счет', class: 'btn btn-primary' %>
-      <%= link_to 'Отклонить', reject_admin_order_path(@order), method: :patch, class: 'btn btn-danger' %>
+      <div class="form-group">
+        <%= f.text_field :sum, placeholder: 'Цена', class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.submit 'Выставить счет', class: 'btn btn-primary' %>
+        <%= link_to 'Отклонить', reject_admin_order_path(@order), method: :patch, class: 'btn btn-danger' %>
+      </div>
     <% end %>
   </div>
 <% end %>
@@ -50,7 +54,7 @@
           <td class="col-xs-9 col-sm-10">
             <%= message.content %>
             <% if message.image? %>
-              <%= image_tag message.image_url %>
+              <%= image_tag message.image_url, class: 'img-responsive' %>
             <% end %>
           </td>
         </tr>
@@ -60,8 +64,12 @@
 
   <div class="form-group">
     <%= form_for [:admin, @order, @order.messages.build], html: { class: 'form-inline' } do |f| %>
-      <%= f.text_field :content, class: 'form-control' %>
-      <%= f.submit 'Отправить', class: 'btn btn-default' %>
+      <div class="form-group">
+        <%= f.text_field :content, placeholder: 'Сообщение', class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.submit 'Отправить', class: 'btn btn-default' %>
+      </div>
       <%= f.file_field :image, class: 'form-image' %>
     <% end %>
   </div>
