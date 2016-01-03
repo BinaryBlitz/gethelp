@@ -27,6 +27,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:phone_number, :verification_token)
+    params.require(:user).permit(:phone_number, :verification_token, :device_token, :platform)
   end
 end
