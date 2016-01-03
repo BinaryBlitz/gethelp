@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   resource :user, only: [:show, :create, :destroy]
   resources :orders, only: [:index, :create, :update] do
     resources :messages, shallow: true
+    resources :payments, only: [:create]
   end
   resources :verification_tokens, only: [:create, :update], param: :token
-  resources :payments, only: [:index, :create]
 end
