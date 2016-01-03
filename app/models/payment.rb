@@ -28,6 +28,7 @@ class Payment < ActiveRecord::Base
   def set_paid
     Payment.transaction do
       update(paid: true)
+      order.update(status: 'paid')
     end
   end
 

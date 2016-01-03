@@ -16,6 +16,7 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  sum         :integer
+#  status      :string
 #
 
 class Order < ActiveRecord::Base
@@ -34,6 +35,7 @@ class Order < ActiveRecord::Base
 
   extend Enumerize
   enumerize :category, in: [:urgent, :homework], default: :homework
+  enumerize :status, in: [:new, :pending, :paid, :completed, :rejected], default: :new
 
   private
 
