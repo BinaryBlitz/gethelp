@@ -13,6 +13,8 @@
 #
 
 class Message < ActiveRecord::Base
+  after_create :notify_user
+
   belongs_to :user
   belongs_to :order
 
@@ -31,5 +33,10 @@ class Message < ActiveRecord::Base
   def not_operator
     return unless user
     errors.add(:category, 'is not permitted') if category.operator?
+  end
+
+  def notify_user
+    return unless category.user?
+    Notifier.new(user, 'У вас новое сообщение.')
   end
 end

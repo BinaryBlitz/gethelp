@@ -20,10 +20,11 @@
 #
 
 class Order < ActiveRecord::Base
-  belongs_to :user
-  before_save -> { self.email.downcase! if self.email }
-  before_save -> { self.status = 'pending' if self.sum }
+  before_save -> { self.email.downcase! if email }
+  before_save -> { self.status = 'pending' if sum && status.new? }
+  before_save :notify_user
 
+  belongs_to :user
   has_one :payment
   has_many :messages
 
@@ -52,5 +53,10 @@ class Order < ActiveRecord::Base
     return unless starts_at
 
     errors.add(:starts_at, 'is less than now') if starts_at < Time.zone.now
+  end
+
+  def notify_user
+    return unless status_changed?
+    Notifier.new(user, 'Статус вашего заказа был изменен!')
   end
 end
