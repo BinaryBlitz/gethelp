@@ -7,7 +7,6 @@
 #  api_token    :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
-#  balance      :integer          default(0)
 #
 
 class User < ActiveRecord::Base
@@ -20,14 +19,9 @@ class User < ActiveRecord::Base
   has_many :payments
 
   validates :phone_number, presence: true, uniqueness: true, phony_plausible: true
-  validates :balance, numericality: { greater_than_or_equal_to: 0 }
   validate :verified_phone_number
 
   has_secure_token :api_token
-
-  def deposit(sum)
-    update(balance: balance + sum)
-  end
 
   private
 
