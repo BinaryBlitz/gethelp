@@ -7,6 +7,8 @@
 #  api_token    :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  device_token :string
+#  platform     :string
 #
 
 class User < ActiveRecord::Base
@@ -19,6 +21,7 @@ class User < ActiveRecord::Base
   has_many :payments
 
   validates :phone_number, presence: true, uniqueness: true, phony_plausible: true
+  validates :platform, inclusion: { in: %w(android ios) }, if: 'device_token.present?'
   validate :verified_phone_number
 
   has_secure_token :api_token
