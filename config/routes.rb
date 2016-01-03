@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :orders do
       patch :reject, on: :member
+
+      resources :messages, only: [:create]
     end
   end
 

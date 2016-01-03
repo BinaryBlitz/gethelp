@@ -34,3 +34,29 @@
 <p><strong>Телефон: </strong> <%= @order.phone_number %></p>
 <p><strong>Оплата: </strong> <%= @order.sum %></p>
 <p><strong>Статус: </strong> <%= @order.status %></p>
+
+<% if @order.status.paid? || @order.status.pending? %>
+  <h2>Сообщения</h2>
+
+  <table class="table table-hover">
+    <thead>
+      <th>Отправитель</th>
+      <th>Сообщение</th>
+    </thead>
+    <tbody>
+      <% @order.messages.each do |message| %>
+        <tr class="<%= 'active' if message.category.user? %>">
+          <td class="col-xs-3 col-sm-2"><%= message.category.user? ? @order.phone_number : 'Оператор' %></td>
+          <td class="col-xs-9 col-sm-10"><%= message.content %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class="form-group">
+    <%= form_for [:admin, @order, @order.messages.build], html: { class: 'form-inline' } do |f| %>
+      <%= f.text_field :content, class: 'form-control' %>
+      <%= f.submit 'Отправить', class: 'btn btn-default' %>
+    <% end %>
+  </div>
+<% end %>
