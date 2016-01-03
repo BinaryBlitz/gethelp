@@ -16,7 +16,7 @@ class Message < ActiveRecord::Base
   belongs_to :user
   belongs_to :order
 
-  validates :content, presence: true
+  validates :content, presence: true, unless: 'image?'
   validates :order, presence: true
   validates :user, presence: true, if: 'category && !category.operator?'
   validate :not_operator

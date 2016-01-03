@@ -47,7 +47,12 @@
       <% @order.messages.each do |message| %>
         <tr class="<%= 'active' if message.category.user? %>">
           <td class="col-xs-3 col-sm-2"><%= message.category.user? ? @order.phone_number : 'Оператор' %></td>
-          <td class="col-xs-9 col-sm-10"><%= message.content %></td>
+          <td class="col-xs-9 col-sm-10">
+            <%= message.content %>
+            <% if message.image? %>
+              <%= image_tag message.image_url %>
+            <% end %>
+          </td>
         </tr>
       <% end %>
     </tbody>
@@ -57,6 +62,7 @@
     <%= form_for [:admin, @order, @order.messages.build], html: { class: 'form-inline' } do |f| %>
       <%= f.text_field :content, class: 'form-control' %>
       <%= f.submit 'Отправить', class: 'btn btn-default' %>
+      <%= f.file_field :image, class: 'form-image' %>
     <% end %>
   </div>
 <% end %>
