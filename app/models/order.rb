@@ -22,6 +22,7 @@
 class Order < ActiveRecord::Base
   belongs_to :user
   before_save -> { self.email.downcase! if self.email }
+  before_save -> { self.status = 'pending' if self.sum }
 
   has_one :payment
   has_many :messages
@@ -35,7 +36,7 @@ class Order < ActiveRecord::Base
 
   extend Enumerize
   enumerize :category, in: [:urgent, :homework], default: :homework
-  enumerize :status, in: [:new, :pending, :paid, :completed, :rejected], default: :new
+  enumerize :status, in: [:new, :pending, :paid, :rejected], default: :new
 
   delegate :phone_number, to: :user
 

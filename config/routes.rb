@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :orders
+    resources :orders do
+      patch :reject, on: :member
+    end
   end
 
   scope '/robokassa' do
@@ -22,7 +24,7 @@ Rails.application.routes.draw do
   end
 
   resource :user, only: [:show, :create, :destroy]
-  resources :orders, only: [:index, :create, :update] do
+  resources :orders, only: [:show, :index, :create, :update] do
     resources :messages, shallow: true
     resources :payments, only: [:create]
   end

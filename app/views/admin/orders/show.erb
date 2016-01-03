@@ -1,0 +1,36 @@
+<h1>Заказ №<%= @order.id %></h1>
+
+<% if @order.status.new? %>
+  <div class="form-group">
+    <%= form_for [:admin, @order], html: { class: 'form-inline' } do |f| %>
+      <%= f.text_field :sum, class: 'form-control' %>
+      <%= f.submit 'Выставить счет', class: 'btn btn-primary' %>
+      <%= link_to 'Отклонить', reject_admin_order_path(@order), method: :patch, class: 'btn btn-danger' %>
+    <% end %>
+  </div>
+<% end %>
+
+<% if @order.status.paid? %>
+  <div class="form-group">
+    <%= link_to 'Возврат', '#', class: 'btn btn-danger' %>
+  </div>
+<% end %>
+
+<div class="form-group">
+</div>
+
+<% if @order.starts_at %>
+  <p><strong>Время начала: </strong> <%= @order.starts_at.to_formatted_s(:short) %></p>
+<% end %>
+
+<p><strong>Время окончания: </strong> <%= @order.due_by.to_formatted_s(:short) %></p>
+<p><strong>Предмет: </strong> <%= @order.course %></p>
+<p><strong>Курс: </strong> <%= @order.grade %></p>
+<p><strong>Тип: </strong> <%= @order.category %></p>
+<p><strong>Вуз: </strong> <%= @order.university %></p>
+<p><strong>Факультет: </strong> <%= @order.faculty %></p>
+<p><strong>Описание: </strong> <%= @order.description %></p>
+<p><strong>Почта: </strong> <%= @order.email %></p>
+<p><strong>Телефон: </strong> <%= @order.phone_number %></p>
+<p><strong>Оплата: </strong> <%= @order.sum %></p>
+<p><strong>Статус: </strong> <%= @order.status %></p>
