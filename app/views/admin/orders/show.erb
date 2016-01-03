@@ -30,14 +30,14 @@
 <p><strong>Время окончания: </strong> <%= @order.due_by.to_formatted_s(:short) %></p>
 <p><strong>Предмет: </strong> <%= @order.course %></p>
 <p><strong>Курс: </strong> <%= @order.grade %></p>
-<p><strong>Тип: </strong> <%= @order.category %></p>
+<p><strong>Тип: </strong> <%= @order.category_text %></p>
 <p><strong>Вуз: </strong> <%= @order.university %></p>
 <p><strong>Факультет: </strong> <%= @order.faculty %></p>
 <p><strong>Описание: </strong> <%= @order.description %></p>
 <p><strong>Почта: </strong> <%= @order.email %></p>
 <p><strong>Телефон: </strong> <%= @order.phone_number %></p>
 <p><strong>Оплата: </strong> <%= @order.sum %></p>
-<p><strong>Статус: </strong> <%= @order.status %></p>
+<p><strong>Статус: </strong> <%= @order.status_text %></p>
 
 <h2>Сообщения</h2>
 

@@ -24,6 +24,7 @@ gem 'devise'
 gem 'devise-bootstrap-views'
 gem 'kaminari'
 gem 'rubykassa', github: 'BinaryBlitz/rubykassa'
+gem 'rails-i18n'
 
 group :development, :test do
   gem 'byebug'

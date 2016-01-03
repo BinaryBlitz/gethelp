@@ -18,9 +18,9 @@
           <td><%= link_to order.id, [:admin, order] %></td>
           <td><%= order.due_by.to_formatted_s(:short) %></td>
           <td><%= order.course %></td>
-          <td><%= order.category %></td>
+          <td><%= order.category_text %></td>
           <td><%= "Вася" %></td>
-          <td><%= order.status %></td>
+          <td><%= order.status_text %></td>
           <td><%= order.sum %></td>
           <td><%= order.phone_number %></td>
         </tr>
