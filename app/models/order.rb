@@ -20,11 +20,11 @@
 #
 
 class Order < ActiveRecord::Base
-  belongs_to :user
-  before_save -> { self.email.downcase! if self.email }
-  before_save -> { self.status = 'pending' if self.sum }
-  after_update :notify_user
+  before_save -> { self.email.downcase! if email }
+  before_save -> { self.status = 'pending' if sum && status.new? }
+  before_save :notify_user
 
+  belongs_to :user
   has_one :payment
   has_many :messages
 
@@ -56,7 +56,7 @@ class Order < ActiveRecord::Base
   end
 
   def notify_user
-    return unless previous_changes['status'].any?
+    return unless status_changed?
     Notifier.new(user, 'Статус вашего заказа был изменен!')
   end
 end
