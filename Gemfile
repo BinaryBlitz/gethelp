@@ -1,9 +1,8 @@
 source 'https://rubygems.org'
 
-ruby '2.3.0'
-
 gem 'rails', '4.2.5'
 gem 'pg'
+gem 'unicorn'
 
 gem 'sass-rails'
 gem 'uglifier'
@@ -35,6 +34,9 @@ group :development do
   gem 'web-console'
   gem 'spring'
   gem 'annotate'
+  gem 'capistrano'
+  gem 'capistrano-ext'
+  gem 'rvm-capistrano', require: false
 end
 
 group :production do
