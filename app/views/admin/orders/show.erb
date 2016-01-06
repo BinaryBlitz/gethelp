@@ -54,7 +54,9 @@
         <td class="col-xs-9 col-sm-10">
           <%= message.content %>
           <% if message.image? %>
-            <%= image_tag message.image_url, class: 'img-responsive' %>
+            <%= link_to message.image_url do %>
+              <%= image_tag message.image.thumb.url, class: 'img-responsive' %>
+            <% end %>
           <% end %>
         </td>
       </tr>
