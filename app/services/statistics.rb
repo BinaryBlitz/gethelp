@@ -1,8 +1,8 @@
 class Statistics
-  def initialize(from, to)
+  def initialize(from = nil, to = nil)
     @from = from
     @to = to
-    @orders = Order.where(created_at: from..to)
+    @orders = (from && to) ? Order.where(created_at: from..to) : Order.all
   end
 
   def order_count

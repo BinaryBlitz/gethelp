@@ -11,6 +11,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder'
 gem 'bootstrap-sass'
+gem 'bootstrap-datepicker-rails'
 
 gem 'has_secure_token'
 gem 'httparty'
