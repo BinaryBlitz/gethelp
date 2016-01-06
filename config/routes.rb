@@ -27,7 +27,7 @@ Rails.application.routes.draw do
     post 'paid', 'success', 'fail', controller: 'robokassa'
   end
 
-  resource :user, only: [:show, :create, :destroy]
+  resource :user, only: [:show, :create, :update, :destroy]
   resources :orders, only: [:show, :index, :create, :update] do
     resources :messages, shallow: true
     resources :payments, only: [:create]

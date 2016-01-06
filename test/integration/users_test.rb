@@ -20,6 +20,11 @@ class UsersTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test 'update' do
+    patch '/user.json', api_token: api_token, user: { device_token: 'foobar', platform: 'ios' }
+    assert_response :ok
+  end
+
   test 'destroy' do
     delete '/user.json', api_token: api_token
     assert_response :no_content

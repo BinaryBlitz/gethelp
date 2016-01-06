@@ -16,8 +16,14 @@ verification_token:
   code: 1234
   phone_number: '+71112223344'
 
-verified:
+user_token:
   token: <%= SecureRandom.hex %>
   code: 1234
   phone_number: '+71112223344'
+  verified: true
+
+verified:
+  token: <%= SecureRandom.hex %>
+  code: 1234
+  phone_number: '+72223334455'
   verified: true

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :restrict_access, only: :create
-  before_action :set_user, only: [:show, :destroy]
+  before_action :set_user, only: [:show, :update, :destroy]
 
   def show
   end
@@ -10,6 +10,14 @@ class UsersController < ApplicationController
 
     if @user.save
       render :show, status: :created
+    else
+      render json: @user.errors, status: 422
+    end
+  end
+
+  def update
+    if @user.update(user_params)
+      head :ok
     else
       render json: @user.errors, status: 422
     end
