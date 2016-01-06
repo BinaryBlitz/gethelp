@@ -50,7 +50,13 @@
   <tbody>
     <% @order.messages.each do |message| %>
       <tr class="<%= 'active' if message.category.user? %>">
-        <td class="col-xs-3 col-sm-2"><%= message.category.user? ? @order.phone_number : 'Оператор' %></td>
+        <td class="col-xs-3 col-sm-2">
+          <%= message.category.user? ? @order.phone_number : 'Оператор' %>
+          <br>
+          <span class="text-muted">
+            <%= message.created_at.to_formatted_s(:short) %>
+          </span>
+        </td>
         <td class="col-xs-9 col-sm-10">
           <%= message.content %>
           <% if message.image? %>
