@@ -37,7 +37,7 @@ class Order < ActiveRecord::Base
 
   extend Enumerize
   enumerize :category, in: [:urgent, :homework], default: :homework
-  enumerize :status, in: [:new, :pending, :paid, :rejected], default: :new
+  enumerize :status, in: [:new, :pending, :paid, :rejected, :refunded], default: :new, scope: true
 
   delegate :phone_number, to: :user
 

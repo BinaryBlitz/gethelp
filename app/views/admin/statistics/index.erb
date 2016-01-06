@@ -1,0 +1,28 @@
+<h1>Статистика</h1>
+
+<table class="table">
+  <tr>
+    <td>Количество заказов</td>
+    <td><%= @statistics.order_count %></td>
+  </tr>
+  <tr>
+    <td>Отклонено</td>
+    <td><%= @statistics.rejected_count %></td>
+  </tr>
+  <tr>
+    <td>Возвращено</td>
+    <td><%= @statistics.refunded_count %></td>
+  </tr>
+  <tr>
+    <td>Ожидает</td>
+    <td><%= @statistics.pending_count %></td>
+  </tr>
+  <tr>
+    <td>Возвращено на сумму</td>
+    <td><%= @statistics.total_refunded %></td>
+  </tr>
+  <tr>
+    <td>Исполнено на сумму</td>
+    <td><%= @statistics.total_paid %></td>
+  </tr>
+</table>
