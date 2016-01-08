@@ -2,21 +2,22 @@
 #
 # Table name: orders
 #
-#  id          :integer          not null, primary key
-#  user_id     :integer
-#  course      :string
-#  grade       :integer
-#  category    :string
-#  university  :string
-#  faculty     :string
-#  email       :string
-#  starts_at   :datetime
-#  due_by      :datetime
-#  description :text
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  sum         :integer
-#  status      :string
+#  id            :integer          not null, primary key
+#  user_id       :integer
+#  course        :string
+#  grade         :integer
+#  category      :string
+#  university    :string
+#  faculty       :string
+#  email         :string
+#  starts_at     :datetime
+#  due_by        :datetime
+#  description   :text
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  sum           :integer
+#  status        :string
+#  activity_type :string
 #
 
 class Order < ActiveRecord::Base
