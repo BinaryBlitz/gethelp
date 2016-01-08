@@ -36,7 +36,7 @@ class Message < ActiveRecord::Base
   end
 
   def notify_user
-    return unless category.user?
-    Notifier.new(user, 'У вас новое сообщение.')
+    return unless category.operator?
+    Notifier.new(order.user, 'У вас новое сообщение.')
   end
 end
