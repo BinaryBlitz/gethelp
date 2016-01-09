@@ -4,7 +4,7 @@ Rubykassa.configure do |config|
   # config.second_password = ENV['ROBOKASSA_SECOND_PASSWORD']
   config.first_password = Rails.application.secrets.robokassa_first_password
   config.second_password = Rails.application.secrets.robokassa_second_password
-  config.mode = :test # or :production
+  config.mode = Rails.application.secrets.robokassa_mode&.to_sym || :test # or :production
   config.http_method = :get # or :post
   config.xml_http_method = :get # or :post
 
