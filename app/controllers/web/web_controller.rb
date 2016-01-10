@@ -2,6 +2,8 @@ class Web::WebController < ApplicationController
   skip_before_action :restrict_access
   before_action :authenticate_user!
 
+  layout 'application'
+
   protected
 
   helper_method :current_user
