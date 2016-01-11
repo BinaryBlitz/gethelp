@@ -24,7 +24,7 @@ class Message < ActiveRecord::Base
   validate :not_operator
 
   extend Enumerize
-  enumerize :category, in: [:user, :operator, :complaint], default: :user
+  enumerize :category, in: [:user, :operator, :complaint], default: :user, scope: true
 
   mount_base64_uploader :image, ImageUploader
 

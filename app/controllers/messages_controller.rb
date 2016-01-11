@@ -2,6 +2,7 @@ class MessagesController < ApplicationController
   before_action :set_order, only: [:index, :create]
 
   def index
+    @order.view_as_user
     @messages = @order.messages
   end
 

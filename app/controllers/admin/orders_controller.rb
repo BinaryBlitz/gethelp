@@ -6,6 +6,7 @@ class Admin::OrdersController < Admin::AdminController
   end
 
   def show
+    @order.view_as_operator
   end
 
   def edit

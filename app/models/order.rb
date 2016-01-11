@@ -2,23 +2,25 @@
 #
 # Table name: orders
 #
-#  id            :integer          not null, primary key
-#  user_id       :integer
-#  course        :string
-#  grade         :integer
-#  category      :string
-#  university    :string
-#  faculty       :string
-#  email         :string
-#  starts_at     :datetime
-#  due_by        :datetime
-#  description   :text
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
-#  sum           :integer
-#  status        :string
-#  activity_type :string
-#  operator_id   :integer
+#  id                    :integer          not null, primary key
+#  user_id               :integer
+#  course                :string
+#  grade                 :integer
+#  category              :string
+#  university            :string
+#  faculty               :string
+#  email                 :string
+#  starts_at             :datetime
+#  due_by                :datetime
+#  description           :text
+#  created_at            :datetime         not null
+#  updated_at            :datetime         not null
+#  sum                   :integer
+#  status                :string
+#  activity_type         :string
+#  operator_id           :integer
+#  viewed_by_operator_at :datetime
+#  viewed_by_user_at     :datetime
 #
 
 class Order < ActiveRecord::Base
@@ -43,6 +45,34 @@ class Order < ActiveRecord::Base
   enumerize :status, in: [:new, :pending, :paid, :rejected, :refunded], default: :new, scope: true
 
   delegate :phone_number, to: :user
+
+  def view_as_operator
+    touch(:viewed_by_operator_at)
+  end
+
+  def view_as_user
+    touch(:viewed_by_user_at)
+  end
+
+  def viewed_by_user?
+    return true unless viewed_by_user_at.present?
+
+    last_message = messages.with_category(:operator).order(created_at: :desc).first
+    return true unless last_message
+
+    last_message.created_at < viewed_by_user_at
+  end
+
+  alias_method :viewed?, :viewed_by_user?
+
+  def viewed_by_operator?
+    return true unless viewed_by_operator.present?
+
+    last_message = messages.with_category(:user).order(created_at: :desc).first
+    return true unless last_message
+
+    last_message.created_at < viewed_by_operator_at
+  end
 
   private
 
