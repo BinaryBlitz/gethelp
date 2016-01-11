@@ -19,7 +19,7 @@
           <td><%= order.due_by.to_formatted_s(:short) %></td>
           <td><%= order.course %></td>
           <td><%= order.category_text %></td>
-          <td><%= "Вася" %></td>
+          <td><%= order.operator&.name %></td>
           <td><%= order.status_text %></td>
           <td><%= order.sum %></td>
           <td><%= order.phone_number %></td>

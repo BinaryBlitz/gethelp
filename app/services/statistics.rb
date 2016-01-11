@@ -1,7 +1,7 @@
 class Statistics
   def initialize(from = nil, to = nil, operator = nil)
     @orders = Order.all
-    @orders = @orders.where(created_at: from..to) if from && to
+    @orders = @orders.where(created_at: from..to) if from.present? && to.present?
     @orders = @orders.where(operator: operator) if operator
   end
 
