@@ -18,6 +18,7 @@
 #  sum           :integer
 #  status        :string
 #  activity_type :string
+#  operator_id   :integer
 #
 
 order:

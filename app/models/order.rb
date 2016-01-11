@@ -18,6 +18,7 @@
 #  sum           :integer
 #  status        :string
 #  activity_type :string
+#  operator_id   :integer
 #
 
 class Order < ActiveRecord::Base
@@ -26,6 +27,7 @@ class Order < ActiveRecord::Base
   before_save :notify_user
 
   belongs_to :user
+  belongs_to :operator
   has_one :payment
   has_many :messages
 

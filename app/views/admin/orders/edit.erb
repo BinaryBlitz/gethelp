@@ -7,6 +7,11 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :operator %>
+    <%= f.select :operator_id, options_from_collection_for_select(Operator.all, :id, :name, @order.operator_id), { include_blank: true }, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
     <%= f.submit class: 'btn btn-default' %>
   </div>
 <% end %>

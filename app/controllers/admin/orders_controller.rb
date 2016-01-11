@@ -31,6 +31,6 @@ class Admin::OrdersController < Admin::AdminController
   end
 
   def order_params
-    params.require(:order).permit(:sum, :email)
+    params.require(:order).permit(:sum, :email, :operator_id)
   end
 end
