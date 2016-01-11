@@ -1,9 +1,13 @@
 class Admin::StatisticsController < Admin::AdminController
   def index
-    @statistics = date_range_present? ? Statistics.new(*date_range) : Statistics.new
+    @statistics = Statistics.new(*date_range, operator)
   end
 
   private
+
+  def operator
+    # Operator.find_by(id: params[:operator_id])
+  end
 
   def date_range
     from = params[:from]
