@@ -10,3 +10,18 @@
     <%= submit_tag 'Отправить', class: 'btn btn-danger', data: { confirm: 'Вы уверены?' } %>
   </div>
 <% end %>
+
+<table class="table">
+  <thead>
+    <th>Сообщение</th>
+    <th>Дата отправки</th>
+  </thead>
+  <tbody>
+    <% @notifications.each do |notification| %>
+      <tr>
+        <td><%= notification.message %></td>
+        <td><%= notification.created_at.to_formatted_s(:short) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
