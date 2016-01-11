@@ -3,6 +3,7 @@
 <div class="table-responsive">
   <table class="table">
     <thead>
+      <th></th>
       <th>№</th>
       <th>Время исполнения</th>
       <th>Предмет</th>
@@ -15,6 +16,11 @@
     <tbody>
       <% @orders.each do |order| %>
         <tr>
+          <td>
+            <% unless order.viewed_by_operator? %>
+              <span class="label label-success">●</span>
+            <% end %>
+          </td>
           <td><%= link_to order.id, [:admin, order] %></td>
           <td><%= order.due_by.to_formatted_s(:short) %></td>
           <td><%= order.course %></td>

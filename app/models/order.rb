@@ -66,7 +66,7 @@ class Order < ActiveRecord::Base
   alias_method :viewed?, :viewed_by_user?
 
   def viewed_by_operator?
-    return true unless viewed_by_operator.present?
+    return true unless viewed_by_operator_at.present?
 
     last_message = messages.with_category(:user).order(created_at: :desc).first
     return true unless last_message
