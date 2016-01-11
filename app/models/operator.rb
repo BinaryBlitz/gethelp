@@ -19,7 +19,6 @@
 #  type                   :string
 #
 
-class Admin < ActiveRecord::Base
-  # Others available are: :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable
+class Operator < Admin
+  has_many :orders
 end
