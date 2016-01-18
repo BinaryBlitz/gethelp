@@ -22,4 +22,8 @@
 class Admin < ActiveRecord::Base
   # Others available are: :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable
+
+  def admin?
+    type.nil?
+  end
 end
