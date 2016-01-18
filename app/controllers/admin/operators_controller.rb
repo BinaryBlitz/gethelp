@@ -1,4 +1,5 @@
 class Admin::OperatorsController < Admin::AdminController
+  before_action :authorize_admin
   before_action :set_operator, only: [:edit, :update, :destroy]
 
   def index

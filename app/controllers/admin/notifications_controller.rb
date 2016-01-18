@@ -1,4 +1,6 @@
 class Admin::NotificationsController < Admin::AdminController
+  before_action :authorize_admin
+  
   def index
     @notifications = Notification.order(created_at: :desc)
   end

@@ -1,4 +1,6 @@
 class Admin::StatisticsController < Admin::AdminController
+  before_action :authorize_admin
+
   def index
     @statistics = Statistics.new(*date_range, operator)
   end
