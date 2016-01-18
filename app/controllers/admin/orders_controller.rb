@@ -7,6 +7,7 @@ class Admin::OrdersController < Admin::AdminController
     else
       @orders = current_admin.orders.page(params[:page])
     end
+    @orders = @orders.where(user_id: params[:user_id]) if params[:user_id].present?
   end
 
   def show

@@ -32,7 +32,7 @@
             </span>
           </td>
           <td><%= order.sum %></td>
-          <td><%= order.phone_number %></td>
+          <td><%= link_to order.phone_number, user_id: order.user_id %></td>
         </tr>
       <% end %>
     </tbody>
