@@ -1,13 +1,10 @@
 class Admin::OrdersController < Admin::AdminController
+  before_action :set_orders, only: :index
   before_action :set_order, only: [:show, :edit, :update, :reject]
 
   def index
-    if current_admin.admin?
-      @orders = Order.all.order(created_at: :desc).page(params[:page])
-    else
-      @orders = current_admin.orders.page(params[:page])
-    end
     @orders = @orders.where(user_id: params[:user_id]) if params[:user_id].present?
+    @orders = @orders.page(params[:page]).per(100)
   end
 
   def show
@@ -31,6 +28,14 @@ class Admin::OrdersController < Admin::AdminController
   end
 
   private
+
+  def set_orders
+    if current_admin.admin?
+      @orders = Order.all.order(created_at: :desc)
+    else
+      @orders = current_admin.orders.order(created_at: :desc)
+    end
+  end
 
   def set_order
     @order = Order.find(params[:id])
