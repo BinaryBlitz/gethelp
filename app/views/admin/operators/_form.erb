@@ -1,0 +1,27 @@
+<%= form_for [:admin, @operator] do |f| %>
+  <%= render 'shared/error_messages', object: @operator %>
+
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, placeholder: 'Имя', class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.email_field :email, placeholder: 'Email', class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password %>
+    <%= f.password_field :password, placeholder: 'Пароль', class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, placeholder: 'Подтверждение пароля', class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit 'Подтвердить', class:'btn btn-primary' %>
+  </div>
+<% end %>

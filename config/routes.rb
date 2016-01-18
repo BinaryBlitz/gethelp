@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :notifications, only: [:index, :create]
     resources :statistics, only: [:index]
+    resources :operators, except: [:show]
     resources :orders do
       patch :reject, on: :member
 

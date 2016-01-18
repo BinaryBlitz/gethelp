@@ -31,6 +31,7 @@
         </li> -->
         <li><%= link_to 'Уведомления', admin_notifications_path %></li>
         <li><%= link_to 'Статистика', admin_statistics_path %></li>
+        <li><%= link_to 'Операторы', admin_operators_path %></li>
         <% if admin_signed_in? %>
           <li><%= link_to 'Выход', destroy_admin_session_path, method: :delete %></li>
         <% else %>
