@@ -37,6 +37,11 @@ ru:
         starts_at: Время начала
         due_by: Время окончания
         description: Описание
+        operator: Оператор
+      operator:
+        name: Имя
+        password: Пароль
+        password_confirmation: Подтверждение пароля
   helpers:
     submit:
       create: "Создать %{model}"
