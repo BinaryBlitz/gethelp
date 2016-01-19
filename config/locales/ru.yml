@@ -51,6 +51,7 @@ ru:
         pending: Ожидает оплаты
         paid: Оплачен
         rejected: Отклонен
+        refunded: Возврат
       category:
         homework: Домашнее задание
         urgent: Срочная помощь

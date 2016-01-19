@@ -49,6 +49,10 @@
 <p><strong>Оплата: </strong> <%= @order.sum %></p>
 <p><strong>Оператор: </strong> <%= @order.operator&.name %></p>
 <p><strong>Статус: </strong> <%= @order.status_text %></p>
+<% if @order.status.refunded? %>
+  <p><strong>Сумма возврата: </strong> <%= @order.refund_amount %></p>
+<% end %>
+
 
 <h2>Сообщения</h2>
 
