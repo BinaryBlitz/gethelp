@@ -21,11 +21,13 @@
 #  operator_id           :integer
 #  viewed_by_operator_at :datetime
 #  viewed_by_user_at     :datetime
+#  refund_amount         :integer
 #
 
 order:
   user: foo
   sum: 500
+  status: paid
   course: Geography
   grade: 1
   category: homework
@@ -36,6 +38,7 @@ order:
 exam:
   user: foo
   sum: 500
+  status: paid
   course: Math
   grade: 1
   category: urgent
@@ -46,6 +49,7 @@ exam:
 homework:
   user: baz
   sum: 500
+  status: paid
   course: English
   grade: 2
   category: homework

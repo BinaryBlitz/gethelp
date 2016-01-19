@@ -21,6 +21,7 @@
 #  operator_id           :integer
 #  viewed_by_operator_at :datetime
 #  viewed_by_user_at     :datetime
+#  refund_amount         :integer
 #
 
 class Order < ActiveRecord::Base
@@ -35,8 +36,9 @@ class Order < ActiveRecord::Base
 
   validates :user, presence: true
   validates :sum, numericality: { greater_than: 0 }, allow_blank: true
+  validates :refund_amount, numericality: { greater_than: 0 }, if: 'status.refunded?'
   validates :due_by, presence: true
-  validates :starts_at, presence: true, if: 'category && category.urgent?'
+  validates :starts_at, presence: true, if: 'category&.urgent?'
   validate :end_time_valid?
   validate :start_time_valid?, on: :create
 

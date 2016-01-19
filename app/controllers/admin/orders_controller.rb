@@ -1,6 +1,6 @@
 class Admin::OrdersController < Admin::AdminController
   before_action :set_orders, only: :index
-  before_action :set_order, only: [:show, :edit, :update, :reject]
+  before_action :set_order, only: [:show, :edit, :update, :reject, :refund]
 
   def index
     @orders = @orders.where(user_id: params[:user_id]) if params[:user_id].present?
@@ -25,6 +25,11 @@ class Admin::OrdersController < Admin::AdminController
   def reject
     @order.update(status: 'rejected')
     redirect_to [:admin, @order], notice: 'Отказ произведен.'
+  end
+
+  def refund
+    @order.update(status: 'refunded', refund_amount: params[:refund_amount])
+    redirect_to [:admin, @order], notice: 'Возврат произведен.'
   end
 
   private

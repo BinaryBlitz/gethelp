@@ -21,6 +21,7 @@
 #  operator_id           :integer
 #  viewed_by_operator_at :datetime
 #  viewed_by_user_at     :datetime
+#  refund_amount         :integer
 #
 
 require 'test_helper'
@@ -79,5 +80,14 @@ class OrderTest < ActiveSupport::TestCase
     email = 'FOO@BAR.COM'
     homework = Order.create(email: email, due_by: Time.zone.now + 1.year, user: @order.user)
     assert_equal email.downcase, homework.email
+  end
+
+  test 'invalid without refund amount' do
+    @order.status = 'refunded'
+    @order.refund_amount = nil
+    assert @order.invalid?
+
+    @order.refund_amount = 100
+    assert @order.valid?
   end
 end

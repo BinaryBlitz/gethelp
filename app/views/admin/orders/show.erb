@@ -16,8 +16,17 @@
 
 <% if @order.status.paid? %>
   <div class="form-group">
-    <%= link_to 'Изменить', edit_admin_order_path(@order), class: 'btn btn-default' %>
-    <%= link_to 'Возврат', '#', class: 'btn btn-danger' %>
+    <%= form_tag refund_admin_order_path(@order), method: :patch, class: 'form-inline' do %>
+      <div class="form-group">
+        <%= link_to 'Изменить', edit_admin_order_path(@order), class: 'btn btn-default' %>
+      </div>
+      <div class="form-group">
+        <%= number_field_tag :refund_amount, nil, placeholder: 'Сумма возврата', class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= submit_tag 'Возврат', class: 'btn btn-danger' %>
+      </div>
+    <% end %>
   </div>
 <% end %>
 

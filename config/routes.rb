@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     resources :statistics, only: [:index]
     resources :operators, except: [:show]
     resources :orders do
-      patch :reject, on: :member
+      patch :reject, :refund, on: :member
 
       resources :messages, only: [:create]
     end
