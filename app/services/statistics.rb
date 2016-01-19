@@ -22,7 +22,7 @@ class Statistics
   end
 
   def total_refunded
-    @orders.with_status(:refunded).sum(:sum)
+    @orders.with_status(:refunded).sum(:refund_amount)
   end
 
   def total_paid
