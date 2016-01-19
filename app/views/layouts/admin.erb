@@ -2,6 +2,11 @@
 <html>
 <head>
   <title>GetHelp</title>
+
+  <% if page_needs_refresh? %>
+    <meta http-equiv="refresh" content="60" />
+  <% end %>
+
   <%= stylesheet_link_tag    'admin', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
