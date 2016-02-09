@@ -10,8 +10,10 @@
       <th>Тип</th>
       <th>Оператор</th>
       <th>Статус</th>
-      <th>Цена</th>
-      <th>Заказчик</th>
+      <% if current_admin.admin? %>
+        <th>Цена</th>
+        <th>Заказчик</th>
+      <% end %>
     </thead>
     <tbody>
       <% @orders.each do |order| %>
@@ -31,8 +33,10 @@
               <%= order.status_text %>
             </span>
           </td>
-          <td><%= order.sum %></td>
-          <td><%= link_to order.phone_number, user_id: order.user_id %></td>
+          <% if current_admin.admin? %>
+            <td><%= order.sum %></td>
+            <td><%= link_to order.phone_number, user_id: order.user_id %></td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>
