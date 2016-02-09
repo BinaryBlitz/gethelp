@@ -8,7 +8,7 @@ class Admin::StatisticsController < Admin::AdminController
   private
 
   def operator
-    # Operator.find_by(id: params[:operator_id])
+    Operator.find_by(id: params[:operator_id])
   end
 
   def date_range
