@@ -39,7 +39,7 @@ class Order < ActiveRecord::Base
   validates :refund_amount, numericality: { greater_than: 0 }, if: 'status.refunded?'
   validates :due_by, presence: true
   validates :starts_at, presence: true, if: 'category&.urgent?'
-  validate :end_time_valid?
+  validate :due_time_valid?
   validate :start_time_valid?, on: :create
 
   extend Enumerize
@@ -78,7 +78,7 @@ class Order < ActiveRecord::Base
 
   private
 
-  def end_time_valid?
+  def due_time_valid?
     return unless starts_at && due_by
 
     errors.add(:due_by, 'is less than starts_at') if due_by < starts_at
@@ -92,6 +92,7 @@ class Order < ActiveRecord::Base
 
   def notify_user
     return unless status_changed?
+
     Notifier.new(user, 'Статус вашего заказа был изменен!')
   end
 end
