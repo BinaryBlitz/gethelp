@@ -61,6 +61,7 @@ class VerificationToken < ActiveRecord::Base
     {
       api_id: Rails.application.secrets.sms_ru_api_id,
       text: "Код верификации: #{code}",
+      from: 'GettHelp',
       to: phone_number
     }
   end
