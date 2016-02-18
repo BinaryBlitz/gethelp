@@ -14,17 +14,17 @@
 class User < ActiveRecord::Base
   attr_accessor :verification_token
 
-  phony_normalize :phone_number, default_country_code: 'RU'
-
   has_many :orders
   has_many :messages
   has_many :payments
 
-  validates :phone_number, presence: true, uniqueness: true, phony_plausible: true
+  validates :phone_number, presence: true, uniqueness: true, phone: true
   validates :platform, inclusion: { in: %w(android ios) }, if: 'device_token.present?'
   validate :verified_phone_number
 
   has_secure_token :api_token
+
+  include Phonable
 
   private
 

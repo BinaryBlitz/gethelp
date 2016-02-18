@@ -23,9 +23,10 @@ gem 'mini_magick'
 gem 'devise'
 gem 'devise-bootstrap-views'
 gem 'kaminari'
-gem 'rubykassa', github: 'BinaryBlitz/rubykassa'
+gem 'rubykassa'
 gem 'rails-i18n'
 gem 'rpush'
+gem 'phonelib'
 
 group :development, :test do
   gem 'byebug'

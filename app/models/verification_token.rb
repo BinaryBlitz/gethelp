@@ -19,11 +19,11 @@ class VerificationToken < ActiveRecord::Base
   before_create :generate_code
   after_create :send_verification_code
 
-  phony_normalize :phone_number, default_country_code: 'RU'
-
-  validates :phone_number, presence: true
+  validates :phone_number, presence: true, phone: true
 
   has_secure_token
+
+  include Phonable
 
   scope :verified, -> { where(verified: true) }
 

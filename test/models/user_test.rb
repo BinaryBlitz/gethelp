@@ -19,6 +19,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test 'valid' do
+    # byebug
     assert @user.valid?
   end
 
@@ -43,5 +44,12 @@ class UserTest < ActiveSupport::TestCase
 
     @user.platform = 'ios'
     assert @user.valid?
+  end
+
+  test 'phone number normalization' do
+    @user.phone_number = '89998887766'
+    @user.valid?
+
+    assert_equal '+79998887766', @user.phone_number
   end
 end

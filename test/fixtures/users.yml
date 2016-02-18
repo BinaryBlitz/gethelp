@@ -12,7 +12,7 @@
 #
 
 foo:
-  phone_number: '+71112223344'
+  phone_number: '+79991112233'
   api_token: <%= SecureRandom.base64 %>
 
 baz:

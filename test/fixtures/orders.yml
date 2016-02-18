@@ -31,8 +31,8 @@ order:
   course: Geography
   grade: 1
   category: homework
-  starts_at: 2016-01-11 10:27:42
-  due_by: 2016-01-11 12:27:42
+  starts_at: <%= 1.days.from_now %>
+  due_by: <%= 2.days.from_now %>
   description: Some description.
 
 exam:
@@ -42,8 +42,8 @@ exam:
   course: Math
   grade: 1
   category: urgent
-  starts_at: 2016-01-11 10:27:42
-  due_by: 2016-01-11 12:27:42
+  starts_at: <%= 1.days.from_now %>
+  due_by: <%= 2.days.from_now %>
   description: Some description.
 
 homework:
@@ -54,6 +54,6 @@ homework:
   grade: 2
   category: homework
   email: foo@bar.com
-  starts_at: 2015-12-10 23:27:42
-  due_by: 2016-02-10 23:27:42
+  starts_at: <%= 1.days.from_now %>
+  due_by: <%= 2.days.from_now %>
   description: Lorem ipsum dolor sit amet.
