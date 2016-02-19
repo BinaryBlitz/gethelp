@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160119190838) do
+ActiveRecord::Schema.define(version: 20160219084927) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -119,7 +119,7 @@ ActiveRecord::Schema.define(version: 20160119190838) do
     t.integer  "badge"
     t.string   "device_token",      limit: 64
     t.string   "sound",                        default: "default"
-    t.string   "alert"
+    t.text     "alert"
     t.text     "data"
     t.integer  "expiry",                       default: 86400
     t.boolean  "delivered",                    default: false,     null: false
@@ -144,6 +144,8 @@ ActiveRecord::Schema.define(version: 20160119190838) do
     t.integer  "priority"
     t.text     "url_args"
     t.string   "category"
+    t.boolean  "content_available",            default: false
+    t.text     "notification"
   end
 
   add_index "rpush_notifications", ["delivered", "failed"], name: "index_rpush_notifications_multi", where: "((NOT delivered) AND (NOT failed))", using: :btree
