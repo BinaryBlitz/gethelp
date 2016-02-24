@@ -9,6 +9,7 @@ class Admin::OrdersController < Admin::AdminController
 
   def show
     @order.view_as_operator
+    @messages = @order.messages.order(created_at: :asc)
   end
 
   def edit

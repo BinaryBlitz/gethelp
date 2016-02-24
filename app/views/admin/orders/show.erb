@@ -64,7 +64,7 @@
     <th>Сообщение</th>
   </thead>
   <tbody>
-    <% @order.messages.each do |message| %>
+    <% @messages.each do |message| %>
       <tr class="<%= 'active' if message.category.user? %>">
         <td class="col-xs-3 col-sm-2">
           <%= message.category.user? ? @order.phone_number : 'Оператор' %>

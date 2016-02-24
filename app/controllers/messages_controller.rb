@@ -3,7 +3,7 @@ class MessagesController < ApplicationController
 
   def index
     @order.view_as_user
-    @messages = @order.messages
+    @messages = @order.messages.order(created_at: :asc)
   end
 
   def create
