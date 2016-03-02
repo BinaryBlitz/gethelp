@@ -1,6 +1,8 @@
 <h1>
   Заказ №<%= @order.id %>
-  <%= link_to 'Изменить', edit_admin_order_path(@order), class: 'btn btn-default' %>
+  <% unless @order.status.pending? %>
+    <%= link_to 'Изменить', edit_admin_order_path(@order), class: 'btn btn-default' %>
+  <% end %>
 </h1>
 
 <div class="form-group">
