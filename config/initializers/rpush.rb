@@ -133,3 +133,5 @@ Rpush.reflect do |on|
   # on.error do |error|
   # end
 end
+
+Rpush.embed
