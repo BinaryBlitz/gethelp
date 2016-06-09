@@ -29,6 +29,7 @@ gem 'rubykassa'
 gem 'rails-i18n'
 gem 'rpush'
 gem 'phonelib'
+gem 'rollbar'
 
 group :development, :test do
   gem 'byebug'
