@@ -39,9 +39,6 @@ group :development do
   gem 'web-console'
   gem 'spring'
   gem 'annotate'
-  gem 'capistrano'
-  gem 'capistrano-ext'
-  gem 'rvm-capistrano', require: false
 end
 
 group :production do
