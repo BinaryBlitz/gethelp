@@ -7,13 +7,6 @@ Rails.application.routes.draw do
   get 'signup' => 'web/verification_tokens#new'
   delete 'signout' => 'web/sessions#destroy'
 
-  namespace :web do
-    resources :verification_tokens, param: :token
-    resources :deposits, only: [:index]
-    resources :orders
-    resource :user, only: [:show]
-  end
-
   namespace :admin do
     resources :notifications, only: [:index, :create]
     resources :statistics, only: [:index]
