@@ -12,23 +12,35 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.6'
+
+# Front-end
 gem 'bootstrap-sass'
 gem 'bootstrap-datepicker-rails'
+gem 'devise-bootstrap-views'
 
-gem 'has_secure_token'
+# Auth
+gem 'devise', '~> 4.2'
+gem 'has_secure_token', '~> 1.0'
+
+# Utilitird
 gem 'httparty'
 gem 'phony_rails'
 gem 'enumerize'
-gem 'carrierwave'
+
+# Image processing
+gem 'carrierwave', '~> 0.11'
 gem 'carrierwave-base64'
 gem 'mini_magick'
-gem 'devise'
-gem 'devise-bootstrap-views'
 gem 'kaminari'
-gem 'rubykassa'
-gem 'rails-i18n'
-gem 'rpush'
 gem 'phonelib'
+
+# Payments
+gem 'rubykassa', '~> 0.4'
+# Push notifications
+gem 'rpush', '~> 2.7'
+# I18n
+gem 'rails-i18n'
+# Error logging
 gem 'rollbar'
 
 group :development, :test do

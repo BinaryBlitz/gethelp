@@ -232,14 +232,14 @@ DEPENDENCIES
   bootstrap-datepicker-rails
   bootstrap-sass
   byebug
-  carrierwave
+  carrierwave (~> 0.11)
   carrierwave-base64
   coffee-rails (~> 4.2)
-  devise
+  devise (~> 4.2)
   devise-bootstrap-views
   enumerize
   fog-aws
-  has_secure_token
+  has_secure_token (~> 1.0)
   httparty
   jbuilder (~> 2.6)
   jquery-rails
@@ -253,8 +253,8 @@ DEPENDENCIES
   rails-i18n
   rails_12factor
   rollbar
-  rpush
-  rubykassa
+  rpush (~> 2.7)
+  rubykassa (~> 0.4)
   sass-rails (~> 5.0)
   spring
   turbolinks (~> 5)
