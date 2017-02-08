@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.3.1'
+ruby '~> 2.3'
 
 gem 'rails', '~> 4.2.7'
 gem 'pg', '~> 0.18'
@@ -55,5 +55,5 @@ end
 
 group :production do
   gem 'rails_12factor'
-  gem 'fog-aws'
+  gem 'fog-aws', '~> 0.13'
 end
