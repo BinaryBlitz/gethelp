@@ -23,3 +23,14 @@
 # app.save
 
 Admin.create!(email: 'foo@bar.com', password: 'qwerty123')
+
+verification_token = VerificationToken.create!(
+  phone_number: '+79991112233',
+  code: 1234,
+  verified: true
+)
+
+user = User.create!(phone_number: '+79991112233')
+user.update!(api_token: 'foobar')
+
+order = Order.create!(user: user, due_by: 1.month.from_now)
