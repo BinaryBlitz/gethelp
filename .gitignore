@@ -17,4 +17,8 @@
 
 /public/uploads
 
+# Environment
 .env
+
+# rbenv
+.ruby-version
