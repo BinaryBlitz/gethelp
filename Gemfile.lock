@@ -238,7 +238,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  annotate
+  annotate (~> 2.7)
   bootstrap-datepicker-rails
   bootstrap-sass
   byebug

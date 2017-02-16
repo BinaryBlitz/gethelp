@@ -4,7 +4,7 @@
 #
 #  id         :integer          not null, primary key
 #  sum        :integer
-#  paid       :boolean          default(FALSE)
+#  paid       :boolean          default("false")
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  order_id   :integer
