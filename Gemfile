@@ -50,7 +50,7 @@ end
 group :development do
   gem 'web-console'
   gem 'spring'
-  gem 'annotate'
+  gem 'annotate', '~> 2.7'
 end
 
 group :production do
