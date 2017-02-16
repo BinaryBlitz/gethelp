@@ -5,30 +5,35 @@
 #  id           :integer          not null, primary key
 #  token        :string
 #  phone_number :string
-#  code         :integer
+#  code         :string           not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
-#  verified     :boolean          default(FALSE)
+#  verified     :boolean          default("false")
 #
 
 class VerificationToken < ActiveRecord::Base
   SMS_VERIFICATION_URL = 'http://sms.ru/sms/send'
+  ALPHABET = ('0'..'9').to_a
+  CODE_LENGTH = 4
+
+  include Phonable
 
   attr_accessor :entered_code
 
   before_create :generate_code
   after_create :send_verification_code
 
-  validates :phone_number, presence: true, phone: true
+  validates :phone_number, phone: true
 
   has_secure_token
 
-  include Phonable
-
   scope :verified, -> { where(verified: true) }
+  scope :recent, -> { where('created_at > ?', 15.minutes.ago) }
 
   def verify(code)
-    return false unless self.code == code
+    return false unless created_at > 15.minutes.ago || demo?(code)
+    return false unless self.code == code || demo?(code)
+
     update(verified: true)
   end
 
@@ -37,6 +42,8 @@ class VerificationToken < ActiveRecord::Base
   end
 
   def send_verification_code
+    return true if phone_number == Rails.application.secrets.demo_phone_number
+
     response = HTTParty.post(SMS_VERIFICATION_URL, body: sms_verification_params).parsed_response
 
     if response.lines.first.try(:chomp) == '100'
@@ -47,22 +54,29 @@ class VerificationToken < ActiveRecord::Base
     end
   end
 
-  def as_json(options)
+  def as_json(_)
     { phone_number: phone_number, token: token }
   end
 
   private
 
   def generate_code
-    self.code = Random.new.rand(1000..9999)
+    self.code = Array.new(CODE_LENGTH) { ALPHABET.sample }.join
   end
 
   def sms_verification_params
     {
       api_id: Rails.application.secrets.sms_ru_api_id,
       text: "Код верификации: #{code}",
-      from: 'GettHelp',
+      from: Rails.application.secrets.sms_ru_sender,
       to: phone_number
     }
+  end
+
+  def demo?(code)
+    return false if code.blank?
+
+    phone_number == Rails.application.secrets.demo_phone_number &&
+      code == Rails.application.secrets.demo_code
   end
 end
