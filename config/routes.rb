@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :notifications, only: [:index, :create]
     resources :statistics, only: [:index]
     resources :operators, except: [:show]
+    resources :call_backs, only: [:index]
     resources :orders do
       patch :reject, :refund, on: :member
 
