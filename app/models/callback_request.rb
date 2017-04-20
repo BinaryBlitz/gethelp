@@ -11,7 +11,7 @@
 
 class CallbackRequest < ActiveRecord::Base
   validates :name, presence: true
-  validates :phone_number, presence: true, uniqueness: true, phone: true
+  validates :phone_number, presence: true, phone: true
 
   include Phonable
 end
