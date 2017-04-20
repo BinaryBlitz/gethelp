@@ -8,7 +8,7 @@
 #  code         :string           not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
-#  verified     :boolean          default("false")
+#  verified     :boolean          default(FALSE)
 #
 
 class VerificationToken < ActiveRecord::Base
