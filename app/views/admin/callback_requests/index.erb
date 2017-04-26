@@ -1,0 +1,24 @@
+<h1>Обратные звонки</h1>
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <th>№</th>
+      <th>Время составления заявки</th>
+      <th>Имя</th>
+      <th>Номер телефона</th>
+    </thead>
+    <tbody>
+      <% @callback_requests.each do |callback_request| %>
+        <tr>
+          <td><%= callback_request.id %></td>
+          <td><%= callback_request.created_at.to_formatted_s(:short) %></td>
+          <td><%= callback_request.name %></td>
+          <td><%= callback_request.phone_number %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<%= paginate @callback_requests %>
