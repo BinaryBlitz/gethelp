@@ -22,6 +22,8 @@
 #  viewed_by_operator_at :datetime
 #  viewed_by_user_at     :datetime
 #  refund_amount         :integer
+#  name                  :string
+#  phone_number          :string
 #
 
 order:
