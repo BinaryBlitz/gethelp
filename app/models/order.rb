@@ -24,6 +24,7 @@
 #  refund_amount         :integer
 #  name                  :string
 #  phone_number          :string
+#  from_web              :boolean          default(FALSE)
 #
 
 class Order < ActiveRecord::Base
