@@ -37,7 +37,7 @@
   <p><strong>Время начала: </strong> <%= @order.starts_at.to_formatted_s(:short) %></p>
 <% end %>
 
-<p><strong>Время окончания: </strong> <%= @order.due_by.to_formatted_s(:short) %></p>
+<p><strong>Время окончания: </strong> <%= @order.due_by&.to_formatted_s(:short) %></p>
 <p><strong>Предмет: </strong> <%= @order.course %></p>
 <p><strong>Курс: </strong> <%= @order.grade %></p>
 <p><strong>Тип: </strong> <%= @order.category_text %></p>

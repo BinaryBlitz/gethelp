@@ -25,7 +25,7 @@
             <% end %>
           </td>
           <td><%= link_to order.id, [:admin, order] %></td>
-          <td><%= order.due_by.to_formatted_s(:short) %></td>
+          <td><%= order.due_by&.to_formatted_s(:short) %></td>
           <td><%= order.course %></td>
           <td><%= order.category_text %></td>
           <td><%= order.operator&.name %></td>
