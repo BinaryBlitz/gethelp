@@ -19,6 +19,11 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :web do
+    resources :orders, only: [:new, :create]
+    resources :callback_requests, only: [:new, :create]
+  end
+
   scope '/robokassa' do
     post 'paid', 'success', 'fail', controller: 'robokassa'
   end
