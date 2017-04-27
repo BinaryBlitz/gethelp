@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "postmaster@#{Rails.application.secrets.mailgun_domain}"
+  default from: 'orders@getthelp.ru'
   layout 'mailer'
 
   before_action :set_locale
