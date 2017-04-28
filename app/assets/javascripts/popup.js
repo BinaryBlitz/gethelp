@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).on('turbolinks:load', function() {
   document.getElementById('call-back').onclick = function() {
     var el = document.getElementById("popupi");
     el.classList.add("popup-flex");

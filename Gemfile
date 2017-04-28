@@ -16,6 +16,7 @@ gem 'jbuilder', '~> 2.6'
 # Front-end
 gem 'bootstrap-sass'
 gem 'bootstrap-datepicker-rails'
+gem 'bootstrap-select-wrapper-rails'
 gem 'devise-bootstrap-views'
 
 # Auth
