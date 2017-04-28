@@ -28,6 +28,8 @@
 #
 
 class Order < ActiveRecord::Base
+  attr_accessor :due_by_date, :due_by_time
+
   before_save -> { self.email.downcase! if email }
   before_save -> { self.status = 'pending' if sum && status.new? }
   before_save :notify_user, unless: 'from_web?'
@@ -40,16 +42,20 @@ class Order < ActiveRecord::Base
   validates :user, presence: true, unless: 'from_web?'
   validates :sum, numericality: { greater_than: 0 }, allow_blank: true
   validates :refund_amount, numericality: { greater_than: 0 }, if: 'status.refunded?'
-  validates :due_by, presence: true, unless: 'from_web?'
+  validates :due_by, presence: true
   validates :phone_number, phone: true, presence: true, if: 'from_web?'
   validate :due_time_valid?
   validate :start_time_valid?, on: :create
 
-  include Phonelib
+  include Phonable
 
   extend Enumerize
   enumerize :category, in: [:urgent, :homework], default: :homework
   enumerize :status, in: [:new, :pending, :paid, :rejected, :refunded], default: :new, scope: true
+
+  def self.date_with_time(date, time)
+    date + time.seconds_since_midnight.seconds
+  end
 
   def phone_number
     user&.phone_number || read_attribute(:phone_number)

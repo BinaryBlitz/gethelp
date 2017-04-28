@@ -37,6 +37,7 @@ ru:
         faculty: Факультет
         email: Email
         starts_at: Время начала
+        due_by_date: Дата окончания
         due_by: Время окончания
         description: Описание
         operator: Оператор
