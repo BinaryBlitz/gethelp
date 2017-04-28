@@ -1,4 +1,6 @@
+@import 'bootstrap-sprockets';
 @import 'bootstrap';
+@import 'bootstrap-datepicker3';
 @import 'jquery.smartbanner';
 
 * {
@@ -875,4 +877,8 @@ a {
   background-color: #d9edf7;
   border-color: #bce8f1;
   color: #31708f;
+}
+
+.display-none {
+  display: none;
 }
