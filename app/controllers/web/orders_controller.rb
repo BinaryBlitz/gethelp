@@ -1,6 +1,4 @@
 class Web::OrdersController < Web::WebController
-  skip_before_action :authenticate_user!
-
   def new
     @order = Order.new
   end
@@ -9,7 +7,7 @@ class Web::OrdersController < Web::WebController
     @order = Order.new(order_params)
 
     if @order.save
-      redirect_to web_orders_path, notice: 'Спасибо, за вашу заявку, в ближайшее время мы свяжемся с вами.'
+      redirect_to new_web_order_path, notice: 'Спасибо, за вашу заявку, в ближайшее время мы свяжемся с вами.'
     else
       render :new
     end
@@ -21,8 +19,8 @@ class Web::OrdersController < Web::WebController
     params
       .require(:order)
       .permit(
-        :name, :phone_number, :course, :activity_type, :grade,
-        :faculty, :university, :email, :site, :description
+        :name, :phone_number, :course, :category, :grade,
+        :faculty, :university, :email, :site, :description, :from_web
       )
   end
 end
