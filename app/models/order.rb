@@ -30,26 +30,30 @@
 class Order < ActiveRecord::Base
   before_save -> { self.email.downcase! if email }
   before_save -> { self.status = 'pending' if sum && status.new? }
-  before_save :notify_user
+  before_save :notify_user, unless: 'from_web?'
 
   belongs_to :user
   belongs_to :operator
   has_one :payment
   has_many :messages
 
-  validates :user, presence: true
+  validates :user, presence: true, unless: 'from_web?'
   validates :sum, numericality: { greater_than: 0 }, allow_blank: true
   validates :refund_amount, numericality: { greater_than: 0 }, if: 'status.refunded?'
-  validates :due_by, presence: true
-  validates :starts_at, presence: true, if: 'category&.urgent?'
+  validates :due_by, presence: true, unless: 'from_web?'
+  validates :phone_number, phone: true, presence: true, if: 'from_web?'
   validate :due_time_valid?
   validate :start_time_valid?, on: :create
+
+  include Phonelib
 
   extend Enumerize
   enumerize :category, in: [:urgent, :homework], default: :homework
   enumerize :status, in: [:new, :pending, :paid, :rejected, :refunded], default: :new, scope: true
 
-  delegate :phone_number, to: :user
+  def phone_number
+    user&.phone_number || read_attribute(:phone_number)
+  end
 
   def view_as_operator
     touch(:viewed_by_operator_at)
