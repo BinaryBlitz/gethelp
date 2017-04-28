@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+ <head>
+  <title>GettHelp - карманный помошник в вопросах учебы</title>
+  <%= stylesheet_link_tag 'web', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'web', 'data-turbolinks-track' => true %>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-itunes-app" content="app-id=1073331646">
+  <meta name="google-play-app" content="binaryblitz.gethelpapp">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
+  <link rel="icon" type="image/png" href="/images/logo.png">
+  <link rel="stylesheet" href="/assets/jquery.smartbanner.css" media="screen">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+  <script src="/assets/mask.js"></script>
+  <script src="/assets/phone-mask.js" defer></script>
+  <script src="/assets/form.js"></script>
+  <script src="/assets/popup.js" ></script>
+  <script src="/assets/jquery.smartbanner.js"></script>
+  <script src="/assets/smartbanner.js"></script>
+ </head>
+ <body>
+
+    <%= render template: 'web/callback_requests/new' %>
+
+    <%= render 'layouts/header' %>
+
+    <div class="container">
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>">
+          <%= value %>
+        </div>
+      <% end %>
+    </div>
+
+    <%= yield %>
+
+    <%= render 'layouts/footer' %>
+
+ </body>
+</html>
