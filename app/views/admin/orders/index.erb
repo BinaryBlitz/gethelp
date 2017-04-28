@@ -37,7 +37,9 @@
           <td><%= order.created_at.to_formatted_s(:short) %></td>
           <% if current_admin.admin? %>
             <td><%= order.sum %></td>
-            <td><%= link_to order.phone_number, user_id: order.user_id %></td>
+            <td>
+              <%= link_to (order.user&.phone_number || order.phone_number), user_id: order.user_id %>
+            </td>
           <% end %>
         </tr>
       <% end %>

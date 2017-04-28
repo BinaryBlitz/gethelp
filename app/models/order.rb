@@ -57,10 +57,6 @@ class Order < ActiveRecord::Base
     date + time.seconds_since_midnight.seconds
   end
 
-  def phone_number
-    user&.phone_number || read_attribute(:phone_number)
-  end
-
   def view_as_operator
     touch(:viewed_by_operator_at)
   end
