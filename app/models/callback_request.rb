@@ -13,5 +13,13 @@ class CallbackRequest < ActiveRecord::Base
   validates :name, presence: true
   validates :phone_number, presence: true, phone: true
 
+  after_create :send_email
+
   include Phonable
+
+  private
+
+  def send_email
+    CallbackRequestMailer.new_callback_request(self).deliver
+  end
 end
