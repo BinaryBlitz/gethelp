@@ -1,28 +1,30 @@
-<nav class="navbar navbar-default navbar-static-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <%= link_to 'GettHelp', web_orders_path, class: 'navbar-brand' %>
-    </div>
-
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><%= link_to 'Заказы', web_orders_path %></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to 'Баланс: 0 р.', web_deposits_path %></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Личный кабинет <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><%= link_to 'Выйти', signout_path, method: :delete %></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
+<header>
+  <div class="header">
+    <nav class="navbar">
+      <div class="navbar-header">
+        <button class="navbar-toggle" id="black-border" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" type="button">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar black-bgcolor"></span>
+          <span class="icon-bar black-bgcolor"></span>
+          <span class="icon-bar black-bgcolor"></span>
+        </button>
+        <%= link_to image_tag('logoH.png', id: 'logo'), root_path, class: 'navbar-brand navText' %>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to 'О сервисе', root_path, class: 'active header-link first-head' %></li>
+          <li>
+            <a class="navText header-link" href="tel:+74993941607">
+              <span id="black-ph">8 (499)</span>
+              <span id="orange-ph"> 394-16-07</span>
+            </a>
+          </li>
+          <li><%= link_to 'Сделать заказ', new_web_order_path, class: 'nav-btn' %></li>
+          <li>
+            <a class="nav-btn" id="call-back">Перезвоните мне</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
   </div>
-</nav>
+</header>

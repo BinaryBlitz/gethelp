@@ -24,6 +24,7 @@
 #  refund_amount         :integer
 #  name                  :string
 #  phone_number          :string
+#  from_web              :boolean          default(FALSE)
 #
 
 order:
@@ -59,3 +60,12 @@ homework:
   starts_at: <%= 1.days.from_now %>
   due_by: <%= 2.days.from_now %>
   description: Lorem ipsum dolor sit amet.
+
+web_order:
+  name: Name
+  email: foo@bar.com
+  phone_number: +79991112233
+  grade: 1
+  course: Math
+  description: Description
+  from_web: true

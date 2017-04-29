@@ -29,19 +29,26 @@ ru:
         code: Код подтверждения
         entered_code: Полученный код
       order:
+        name: Имя
+        phone_number: Номер телефона
         course: Предмет
         grade: Курс
         university: Вуз
         faculty: Факультет
         email: Email
         starts_at: Время начала
+        due_by_date: Дата окончания
         due_by: Время окончания
         description: Описание
         operator: Оператор
+        category: Тип работы
       operator:
         name: Имя
         password: Пароль
         password_confirmation: Подтверждение пароля
+      callback_request:
+        name: Имя
+        phone_number: Номер телефона
   helpers:
     submit:
       create: "Создать %{model}"
