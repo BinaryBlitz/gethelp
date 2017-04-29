@@ -57,11 +57,6 @@ class OrderTest < ActiveSupport::TestCase
     assert @order.invalid?
   end
 
-  test "starts_at is present if urgent" do
-    @exam.starts_at = nil
-    assert @exam.invalid?
-  end
-
   test 'starts_at and due_by do not overlap' do
     @exam.starts_at = Time.zone.now + 1.day
     @exam.due_by = Time.zone.now - 1.day
