@@ -33,6 +33,7 @@ class Order < ActiveRecord::Base
   before_save -> { self.email.downcase! if email }
   before_save -> { self.status = 'pending' if sum && status.new? }
   before_save :notify_user, unless: 'from_web?'
+  after_create :send_email
 
   belongs_to :user
   belongs_to :operator
@@ -103,5 +104,9 @@ class Order < ActiveRecord::Base
     return unless status_changed?
 
     Notifier.new(user, 'Статус вашего заказа был изменен!')
+  end
+
+  def send_email
+    OrderMailer.new_order(self).deliver
   end
 end
