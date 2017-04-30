@@ -22,6 +22,9 @@
 #  viewed_by_operator_at :datetime
 #  viewed_by_user_at     :datetime
 #  refund_amount         :integer
+#  name                  :string
+#  phone_number          :string
+#  from_web              :boolean          default(FALSE)
 #
 
 require 'test_helper'
@@ -52,11 +55,6 @@ class OrderTest < ActiveSupport::TestCase
   test 'due_by is always present' do
     @order.due_by = nil
     assert @order.invalid?
-  end
-
-  test "starts_at is present if urgent" do
-    @exam.starts_at = nil
-    assert @exam.invalid?
   end
 
   test 'starts_at and due_by do not overlap' do

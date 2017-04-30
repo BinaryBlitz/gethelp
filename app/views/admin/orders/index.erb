@@ -25,7 +25,7 @@
             <% end %>
           </td>
           <td><%= link_to order.id, [:admin, order] %></td>
-          <td><%= order.due_by.to_formatted_s(:short) %></td>
+          <td><%= order.due_by&.to_formatted_s(:short) %></td>
           <td><%= order.course %></td>
           <td><%= order.category_text %></td>
           <td><%= order.operator&.name %></td>
@@ -37,7 +37,9 @@
           <td><%= order.created_at.to_formatted_s(:short) %></td>
           <% if current_admin.admin? %>
             <td><%= order.sum %></td>
-            <td><%= link_to order.phone_number, user_id: order.user_id %></td>
+            <td>
+              <%= link_to (order.user&.phone_number || order.phone_number), user_id: order.user_id %>
+            </td>
           <% end %>
         </tr>
       <% end %>

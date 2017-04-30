@@ -4,18 +4,22 @@ Rails.application.routes.draw do
   root 'web/pages#home'
 
   get 'admin' => 'admin/orders#index'
-  get 'signup' => 'web/verification_tokens#new'
-  delete 'signout' => 'web/sessions#destroy'
 
   namespace :admin do
     resources :notifications, only: [:index, :create]
     resources :statistics, only: [:index]
     resources :operators, except: [:show]
+    resources :callback_requests, only: [:index]
     resources :orders do
       patch :reject, :refund, on: :member
 
       resources :messages, only: [:create]
     end
+  end
+
+  namespace :web do
+    resources :orders, only: [:new, :create]
+    resources :callback_requests, only: [:create]
   end
 
   scope '/robokassa' do

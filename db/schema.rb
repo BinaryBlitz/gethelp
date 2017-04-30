@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160219084927) do
+ActiveRecord::Schema.define(version: 20170427174339) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,13 @@ ActiveRecord::Schema.define(version: 20160219084927) do
 
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
+
+  create_table "callback_requests", force: :cascade do |t|
+    t.string   "name",         null: false
+    t.string   "phone_number", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "messages", force: :cascade do |t|
     t.text     "content"
@@ -66,8 +73,8 @@ ActiveRecord::Schema.define(version: 20160219084927) do
     t.datetime "starts_at"
     t.datetime "due_by"
     t.text     "description"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.integer  "sum"
     t.string   "status"
     t.string   "activity_type"
@@ -75,6 +82,9 @@ ActiveRecord::Schema.define(version: 20160219084927) do
     t.datetime "viewed_by_operator_at"
     t.datetime "viewed_by_user_at"
     t.integer  "refund_amount"
+    t.string   "name"
+    t.string   "phone_number"
+    t.boolean  "from_web",              default: false
   end
 
   add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
@@ -162,7 +172,7 @@ ActiveRecord::Schema.define(version: 20160219084927) do
   create_table "verification_tokens", force: :cascade do |t|
     t.string   "token"
     t.string   "phone_number"
-    t.integer  "code"
+    t.string   "code",                         null: false
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
     t.boolean  "verified",     default: false

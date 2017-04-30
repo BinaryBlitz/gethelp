@@ -1,0 +1,109 @@
+<div class="form-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 form-title">
+        Как с нами связаться
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-links">
+        <div class="col-lg-offset-3 col-lg-3 col-md-6 col-sm-6 col-xs-12 align-right">
+          <a class="contacts-link" id="contact-mail" href="mailto:info@gethelp.ru">
+            <img class="contacts-icon" src="/images/Icon-mail.png">
+            info@gethelp.ru
+          </a>
+        </div>
+        <div class="col-sm-6 col-xs-12 align-phone">
+          <a class="contacts-link" id="contact-phone" href="tel:+74993941607">
+            <img class="contacts-icon" src="/images/Icon-phone.png">
+            8 (499) 394-16-07
+          </a>
+        </div>
+      </div>
+    </div>
+    <hr class="sm-line" size="3">
+    <div class="form-handler">
+      <%= form_for [:web, @order] do |f| %>
+        <div class="row">
+          <div class="col-md-offset-3 col-md-3 col-xs-12 align-right">
+            <%= f.label :name, class: 'form-label' %>
+            <%= f.text_field :name, placeholder: 'Имя', class: 'input placeholder', id: 'formName', required: true %>
+          </div>
+          <div class="col-md-3 col-xs-12 align-phone">
+            <%= f.label :email, class: 'form-label' %>
+            <%= f.email_field :email, placeholder: 'E-mail', class: 'input', id: 'emailInput', required: true %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-offset-3 col-md-3 col-xs-12 align-right">
+            <%= f.label :phone_number, class: 'form-label' %>
+            <%= f.telephone_field :phone_number, placeholder: '+7 (900) 000 00 00', class: 'input', id: 'formPhone', required: true %>
+          </div>
+          <div class="col-md-3 col-xs-12 align-phone blockwithselect">
+            <%= f.label :category, class: 'form-label' %>
+            <%= f.select(:category, nil, {}, { class: 'selectpicker' }) do %>
+              <%= options_for_select(
+                [
+                  ['Домашняя работа', 'homework', { class: 'first-divider' }],
+                  ['Срочная помощь', 'urgent', { class: 'last-divider' }]
+                ]
+              ) %>
+            <% end %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-offset-3 col-md-3 col-xs-12 align-right">
+            <%= f.label :course, class: 'form-label' %>
+            <%= f.text_field :course, placeholder: 'Ваш предмет', class: 'input', id: 'subject', required: true %>
+          </div>
+          <div class="col-md-3 col-xs-12 align-phone">
+            <%= f.label :university, class: 'form-label' %>
+            <%= f.text_field :university, placeholder: 'Название вуза', class: 'input', id: 'uni', required: true %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-offset-3 col-md-3 col-xs-12 align-right">
+            <%= f.label :faculty, class: 'form-label' %>
+            <%= f.text_field :faculty, placeholder: 'Название факультета', class: 'input', id: 'fac', required: true %>
+          </div>
+          <div class="col-md-3 col-xs-12 align-phone blockwithselect">
+            <%= f.label :grade, class: 'form-label' %>
+            <%= f.select(:grade, nil, {}, { class: 'selectpicker' }) do %>
+              <%= options_for_select(
+                [
+                  ['1 Курс', '1', { class: 'first-divider' }],
+                  ['2 Курс', '2'],
+                  ['3 Курс', 3],
+                  ['4 Курс', '4', { class: 'last-divider' }],
+                ]
+              ) %>
+            <% end %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-offset-3 col-md-3 col-xs-12 align-right date datepicker">
+            <%= f.label :due_by_date, class: 'form-label' %>
+            <%= f.text_field :due_by_date, placeholder: 'Дата начала', class: 'input', required: true %>
+            <span class="input-group-addon hide"></span>
+          </div>
+          <div class="col-md-3 col-xs-12 align-phone">
+            <%= f.label :due_by, class: 'form-label' %>
+            <%= f.time_field :due_by_time, class: 'input', required: true %>
+          </div>
+        </div>
+        <div class="row">
+          <div class=" col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6 col-sm-12 col-xs-12 align-right">
+            <%= f.label :description, class: 'form-label' %>
+            <%= f.text_area :description, class: 'textarea' %>
+          </div>
+        </div>
+        <%= f.hidden_field :from_web, value: true %>
+        <div class="row">
+          <div class="col-lg-12 btn-handler">
+            <%= f.submit 'Отправить', class: 'form-btn' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -27,6 +27,7 @@
           <li><%= link_to 'Уведомления', admin_notifications_path %></li>
           <li><%= link_to 'Статистика', admin_statistics_path %></li>
           <li><%= link_to 'Операторы', admin_operators_path %></li>
+          <li><%= link_to 'Обратные звонки', admin_callback_requests_path %></li>
         <% end %>
         <% if admin_signed_in? %>
           <li><%= link_to 'Выход', destroy_admin_session_path, method: :delete %></li>

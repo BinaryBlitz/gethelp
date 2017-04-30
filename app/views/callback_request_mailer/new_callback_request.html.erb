@@ -1,0 +1,13 @@
+<h1> Заказ на обратный звонок №<%= @callback_request.id %> </h1>
+
+<p>
+  Время составления заявки: <%= @callback_request.created_at.to_formatted_s(:short) %>
+</p>
+
+<p>
+  Имя: <%= @callback_request.name %>
+</p>
+
+<p>
+  Телефон: <%= @callback_request.phone_number %>
+</p>

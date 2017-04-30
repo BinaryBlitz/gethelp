@@ -22,31 +22,41 @@
 #  viewed_by_operator_at :datetime
 #  viewed_by_user_at     :datetime
 #  refund_amount         :integer
+#  name                  :string
+#  phone_number          :string
+#  from_web              :boolean          default(FALSE)
 #
 
 class Order < ActiveRecord::Base
+  attr_accessor :due_by_date, :due_by_time
+
   before_save -> { self.email.downcase! if email }
   before_save -> { self.status = 'pending' if sum && status.new? }
-  before_save :notify_user
+  before_save :notify_user, unless: 'from_web?'
+  after_create :send_email
 
   belongs_to :user
   belongs_to :operator
   has_one :payment
   has_many :messages
 
-  validates :user, presence: true
+  validates :user, presence: true, unless: 'from_web?'
   validates :sum, numericality: { greater_than: 0 }, allow_blank: true
   validates :refund_amount, numericality: { greater_than: 0 }, if: 'status.refunded?'
   validates :due_by, presence: true
-  validates :starts_at, presence: true, if: 'category&.urgent?'
+  validates :phone_number, phone: true, presence: true, if: 'from_web?'
   validate :due_time_valid?
   validate :start_time_valid?, on: :create
+
+  include Phonable
 
   extend Enumerize
   enumerize :category, in: [:urgent, :homework], default: :homework
   enumerize :status, in: [:new, :pending, :paid, :rejected, :refunded], default: :new, scope: true
 
-  delegate :phone_number, to: :user
+  def self.date_with_time(date, time)
+    date + time.seconds_since_midnight.seconds
+  end
 
   def view_as_operator
     touch(:viewed_by_operator_at)
@@ -94,5 +104,9 @@ class Order < ActiveRecord::Base
     return unless status_changed?
 
     Notifier.new(user, 'Статус вашего заказа был изменен!')
+  end
+
+  def send_email
+    OrderMailer.new_order(self).deliver
   end
 end

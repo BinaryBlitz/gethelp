@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-ruby '~> 2.3.3'
+ruby '~> 2.4.0'
 
-gem 'rails', '~> 4.2.7'
+gem 'rails', '~> 4.2.8'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.6'
 
@@ -16,6 +16,7 @@ gem 'jbuilder', '~> 2.6'
 # Front-end
 gem 'bootstrap-sass'
 gem 'bootstrap-datepicker-rails'
+gem 'bootstrap-select-wrapper-rails'
 gem 'devise-bootstrap-views'
 
 # Auth
@@ -50,7 +51,7 @@ end
 group :development do
   gem 'web-console'
   gem 'spring'
-  gem 'annotate'
+  gem 'annotate', '~> 2.7'
 end
 
 group :production do

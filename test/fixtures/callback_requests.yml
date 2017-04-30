@@ -1,0 +1,14 @@
+# == Schema Information
+#
+# Table name: callback_requests
+#
+#  id           :integer          not null, primary key
+#  name         :string           not null
+#  phone_number :string           not null
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
+callback_request:
+  name: Name
+  phone_number: '+79991112233'
