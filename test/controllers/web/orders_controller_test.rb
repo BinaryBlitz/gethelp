@@ -9,9 +9,9 @@ class Web::OrdersControllerTest < ActionController::TestCase
     @order.destroy
 
     assert_difference 'Order.count' do
-      post :create, order: @order.attributes.merge(
-        due_by_date: 1.day.from_now, due_by_time: '12:00'
-      )
+      post :create, params: {
+        order: @order.attributes.merge(due_by_date: 1.day.from_now, due_by_time: '12:00')
+      }
     end
 
     new_order_email = ActionMailer::Base.deliveries.last

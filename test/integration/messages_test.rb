@@ -11,13 +11,15 @@ class MessagesTest < ActionDispatch::IntegrationTest
 
   test 'create' do
     assert_difference 'Message.count' do
-      post "/orders/#{@order.id}/messages.json", api_token: api_token, message: { content: 'Test' }
+      post order_messages_path(@order, api_token: api_token), params: {
+        message: { content: 'Test' }
+      }
       assert_response :created
     end
   end
 
   test 'list' do
-    get "/orders/#{@order.id}/messages.json", api_token: api_token
+    get order_messages_path(@order, api_token: api_token)
     assert_response :success
     assert json_response.size > 0
   end

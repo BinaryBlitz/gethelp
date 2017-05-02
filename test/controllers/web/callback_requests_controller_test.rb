@@ -9,7 +9,7 @@ class Web::CallbackRequestsControllerTest < ActionController::TestCase
     @callback_request.destroy
 
     assert_difference 'CallbackRequest.count' do
-      post :create, callback_request: @callback_request.attributes
+      post :create, params: { callback_request: @callback_request.attributes }
     end
 
     new_callback_request_email = ActionMailer::Base.deliveries.last
