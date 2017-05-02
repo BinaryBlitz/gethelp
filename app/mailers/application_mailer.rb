@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'orders@getthelp.ru'
+  default from: 'orders@gethelp24.ru'
   layout 'mailer'
 
   before_action :set_locale

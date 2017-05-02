@@ -14,7 +14,7 @@ class Web::CallbackRequestsControllerTest < ActionController::TestCase
 
     new_callback_request_email = ActionMailer::Base.deliveries.last
 
-    assert_equal ['orders@getthelp.ru'], new_callback_request_email.from
+    assert_equal ['orders@gethelp24.ru'], new_callback_request_email.from
     assert_equal ['foo@bar.com'], new_callback_request_email.to
     assert_equal "Заказ на обратный звонок №#{CallbackRequest.last.id}", new_callback_request_email.subject
   end

@@ -16,7 +16,7 @@ class Web::OrdersControllerTest < ActionController::TestCase
 
     new_order_email = ActionMailer::Base.deliveries.last
 
-    assert_equal ['orders@getthelp.ru'], new_order_email.from
+    assert_equal ['orders@gethelp24.ru'], new_order_email.from
     assert_equal ['foo@bar.com'], new_order_email.to
     assert_equal "Заказ №#{Order.last.id}", new_order_email.subject
   end
