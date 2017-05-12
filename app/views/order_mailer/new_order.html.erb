@@ -9,11 +9,11 @@
 </p>
 
 <p>
-  Телефон: <%= @order.phone_number %>
+  Телефон: <%= @order.user&.phone_number || @order.phone_number %>
 </p>
 
 <p>
-  Тип работы: <%= @order.activity_type %>
+  Тип работы: <%= @order.category %>
 </p>
 
 <p>
@@ -30,6 +30,10 @@
 
 <p>
   Курс: <%= @order.grade %>
+</p>
+
+<p>
+  Время окончания: <%= @order.due_by.to_formatted_s(:short) %>
 </p>
 
 <p>
