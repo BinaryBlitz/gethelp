@@ -4,9 +4,9 @@
 
 Почта: <%= @order.email %>
 
-Телефон: <%= @order.phone_number %>
+Телефон: <%= @order.user&.phone_number || @order.phone_number %>
 
-Тип работы: <%= @order.activity_type %>
+Тип работы: <%= @order.category %>
 
 Предмет: <%= @order.course %>
 
@@ -15,5 +15,7 @@
 Факультет: <%= @order.faculty %>
 
 Курс: <%= @order.grade %>
+
+Время окончания: <%= @order.due_by.to_formatted_s(:short) %>
 
 Описание: <%= @order.description %>

@@ -47,6 +47,15 @@
 <p><strong>Оператор: </strong> <%= @order.operator&.name %></p>
 <p><strong>Статус: </strong> <%= @order.status_text %></p>
 
+<p>
+  <strong>Откуда: </strong>
+  <% if @order.user&.present? %>
+    <%= @order.user.platform %>
+  <% elsif @order.from_web? %>
+    Сайт
+  <% end %>
+</p>
+
 <% if current_admin.admin? %>
   <p><strong>Почта: </strong> <%= @order.email %></p>
   <p><strong>Телефон: </strong> <%= @order.user&.phone_number || @order.phone_number %></p>
