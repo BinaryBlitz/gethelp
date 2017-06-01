@@ -12,7 +12,7 @@ class CallbackRequestMailerTest < ActionMailer::TestCase
       email.deliver_now
     end
 
-    assert_equal ['orders@getthelp.ru'], email.from
+    assert_equal ['orders@gethelp24.ru'], email.from
     assert_equal ['foo@bar.com'], email.to
     assert_equal "Заказ на обратный звонок №#{@callback_request.id}", email.subject
   end
