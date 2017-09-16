@@ -57,7 +57,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   # Annotations
-  gem 'annotate', '~> 2.7'
+  gem 'annotate_rails'
 end
 
 group :production do
