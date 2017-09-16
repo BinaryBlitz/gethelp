@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :statistics, only: [:index]
     resources :operators, except: [:show]
     resources :callback_requests, only: [:index]
+    resources :posts, except: [:show]
     resources :orders do
       patch :reject, :refund, on: :member
 
@@ -31,5 +32,6 @@ Rails.application.routes.draw do
     resources :messages, shallow: true
     resources :payments, only: [:create]
   end
+  resources :posts, only: [:index]
   resources :verification_tokens, only: [:create, :update], param: :token
 end

@@ -1,0 +1,20 @@
+<h1>Новости</h1>
+
+<div class="form-group">
+  <%= link_to 'Создать новость', new_admin_post_path, class: 'btn btn-primary' %>
+</div>
+
+<table class="table">
+  <thead>
+    <th></th>
+    <th>Заголовок</th>
+    <th>Подзаголовок</th>
+    <th>Содержание</th>
+    <th>Акция</th>
+    <th>Дата</th>
+    <th></th>
+  </thead>
+  <tbody>
+    <%= render @posts %>
+  </tbody>
+</table>

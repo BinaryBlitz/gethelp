@@ -1,0 +1,29 @@
+# == Schema Information
+#
+# Table name: posts
+#
+#  id         :integer          not null, primary key
+#  title      :string           not null
+#  subtitle   :string
+#  content    :text
+#  image      :string
+#  promo      :boolean          default(FALSE)
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+post:
+  title: Regular post
+  subtitle: Description
+  content: Content
+  image:
+  promo: false
+
+promo:
+  title: Promo
+  subtitle: Description
+  content: Content
+  image:
+  promo: true

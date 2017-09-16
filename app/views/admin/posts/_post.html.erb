@@ -1,0 +1,19 @@
+<tr>
+  <td>
+    <% if post.image? %>
+      <%= image_tag post.image.thumb.url, class: 'img-responsive' %>
+    <% end %>
+  </td>
+  <td><%= post.title %></td>
+  <td><%= post.subtitle %></td>
+  <td><%= post.content %></td>
+  <td><%= post.promo? %></td>
+  <td><%= post.created_at %></td>
+  <td>
+    <%= link_to 'Изменить', edit_admin_post_path(post), class: 'btn btn-default btn-sm' %>
+    <%= link_to 'Удалить',
+                admin_post_path(post), method: :delete,
+                data: { confirm: 'Вы уверены?' },
+                class: 'btn btn-danger btn-sm' %>
+  </td>
+</tr>

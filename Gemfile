@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '~> 2.4.1'
+ruby '~> 2.4.2'
 
 gem 'rails', '~> 5.1.4'
 gem 'pg', '~> 0.18'
@@ -23,7 +23,7 @@ gem 'devise-bootstrap-views', '~> 0.0'
 gem 'devise', '~> 4.2'
 gem 'has_secure_token', '~> 1.0'
 
-# Utilitird
+# Utilities
 gem 'httparty', '~> 0.14'
 gem 'phony_rails', '~> 0.14'
 gem 'enumerize', '~> 2.1'
@@ -41,8 +41,9 @@ gem 'rubykassa', '~> 0.4'
 gem 'rpush', '~> 2.7'
 # I18n
 gem 'rails-i18n'
-# Error logging
+# Monitoring
 gem 'rollbar'
+gem 'scout_apm'
 
 group :development, :test do
   gem 'byebug'
@@ -56,7 +57,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   # Annotations
-  gem 'annotate', '~> 2.7'
+  gem 'annotate_rails'
 end
 
 group :production do
