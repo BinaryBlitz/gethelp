@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html lang="ru">
- <head>
-  <title>GetHelp – карманный помошник в вопросах учебы</title>
-  <%= stylesheet_link_tag 'web', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'web', 'data-turbolinks-track' => true %>
+  <head>
+    <title>GetHelp – карманный помошник в вопросах учебы</title>
+    <%= stylesheet_link_tag 'web', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'web', 'data-turbolinks-track' => true %>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-itunes-app" content="app-id=1073331646">
-  <meta name="google-play-app" content="binaryblitz.gethelpapp">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-itunes-app" content="app-id=1073331646">
+    <meta name="google-play-app" content="binaryblitz.gethelpapp">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
 
-  <link rel="icon" type="image/png" href="/images/logo.png">
-  <link rel="stylesheet" href="/assets/jquery.smartbanner.css" media="screen">
- </head>
- <body>
-
+    <link rel="icon" type="image/png" href="/images/logo.png">
+    <link rel="stylesheet" href="/assets/jquery.smartbanner.css" media="screen">
+  </head>
+  <body>
     <%= render template: 'web/callback_requests/new' %>
 
     <%= render 'layouts/header' %>
@@ -32,5 +31,14 @@
 
     <%= render 'layouts/footer' %>
 
- </body>
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-89940782-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments)};
+      gtag('js', new Date());
+
+      gtag('config', 'UA-89940782-3');
+    </script>
+  </body>
 </html>
