@@ -15,14 +15,9 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><%= link_to 'Заказы', admin_orders_path %></li>
+        <li><%= link_to 'Новости', admin_posts_path %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <!-- <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Настройки <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><%= link_to 'Link', '#' %></li>
-          </ul>
-        </li> -->
         <% if admin_signed_in? && current_admin.admin? %>
           <li><%= link_to 'Уведомления', admin_notifications_path %></li>
           <li><%= link_to 'Статистика', admin_statistics_path %></li>

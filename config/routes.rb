@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :statistics, only: [:index]
     resources :operators, except: [:show]
     resources :callback_requests, only: [:index]
+    resources :posts, except: [:show]
     resources :orders do
       patch :reject, :refund, on: :member
 
