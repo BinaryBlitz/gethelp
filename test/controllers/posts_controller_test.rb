@@ -12,8 +12,10 @@
 #  updated_at :datetime         not null
 #
 
-class Post < ApplicationRecord
-  validates :title, presence: true
+require 'test_helper'
 
-  mount_uploader :image, ImageUploader
+class PostsControllerTest < ActionDispatch::IntegrationTest
+  # test "the truth" do
+  #   assert true
+  # end
 end

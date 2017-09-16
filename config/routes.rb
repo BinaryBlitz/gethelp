@@ -31,5 +31,6 @@ Rails.application.routes.draw do
     resources :messages, shallow: true
     resources :payments, only: [:create]
   end
+  resources :posts, only: [:index]
   resources :verification_tokens, only: [:create, :update], param: :token
 end
