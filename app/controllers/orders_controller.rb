@@ -31,8 +31,9 @@ class OrdersController < ApplicationController
 
   def order_params
     params.require(:order).permit(
-      :course, :grade, :category, :university, :faculty, :email, :starts_at, :due_by, :description,
-      :activity_type
+      :course, :grade, :category, :university, :faculty,
+      :email, :starts_at, :due_by, :description, :activity_type,
+      :messages_read
     )
   end
 end
