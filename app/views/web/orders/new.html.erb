@@ -71,10 +71,12 @@
             <%= f.select(:grade, nil, {}, { class: 'selectpicker' }) do %>
               <%= options_for_select(
                 [
-                  ['1 Курс', '1', { class: 'first-divider' }],
-                  ['2 Курс', '2'],
-                  ['3 Курс', 3],
-                  ['4 Курс', '4', { class: 'last-divider' }],
+                  ['1 курс', '1', { class: 'first-divider' }],
+                  ['2 курс', '2'],
+                  ['3 курс', '3'],
+                  ['4 курс', '4'],
+                  ['5 курс', '5'],
+                  ['6 курс', '6', { class: 'last-divider' }],
                 ]
               ) %>
             <% end %>
