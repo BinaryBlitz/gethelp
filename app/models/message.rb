@@ -15,8 +15,8 @@
 class Message < ActiveRecord::Base
   after_create :notify_user
 
-  belongs_to :user, touch: :last_message_created_at
-  belongs_to :order
+  belongs_to :user
+  belongs_to :order, touch: :last_message_created_at
 
   validates :content, presence: true, unless: 'image?'
   validates :order, presence: true
