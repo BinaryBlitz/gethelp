@@ -8,9 +8,9 @@
     <div class="row">
       <div class="form-links">
         <div class="col-lg-offset-3 col-lg-3 col-md-6 col-sm-6 col-xs-12 align-right">
-          <a class="contacts-link" id="contact-mail" href="mailto:info@gethelp.ru">
+          <a class="contacts-link" id="contact-mail" href="mailto:orders@gethelp24.ru">
             <img class="contacts-icon" src="/images/Icon-mail.png">
-            info@gethelp.ru
+            orders@gethelp24.ru
           </a>
         </div>
         <div class="col-sm-6 col-xs-12 align-phone">
@@ -71,10 +71,12 @@
             <%= f.select(:grade, nil, {}, { class: 'selectpicker' }) do %>
               <%= options_for_select(
                 [
-                  ['1 Курс', '1', { class: 'first-divider' }],
-                  ['2 Курс', '2'],
-                  ['3 Курс', 3],
-                  ['4 Курс', '4', { class: 'last-divider' }],
+                  ['1 курс', '1', { class: 'first-divider' }],
+                  ['2 курс', '2'],
+                  ['3 курс', '3'],
+                  ['4 курс', '4'],
+                  ['5 курс', '5'],
+                  ['6 курс', '6', { class: 'last-divider' }],
                 ]
               ) %>
             <% end %>
@@ -94,7 +96,7 @@
         <div class="row">
           <div class=" col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6 col-sm-12 col-xs-12 align-right">
             <%= f.label :description, class: 'form-label' %>
-            <%= f.text_area :description, class: 'textarea' %>
+            <%= f.text_area :description, placeholder: 'Укажите вид и тему работы, а также дополнительные сведения, о которых нам нужно знать.', class: 'textarea' %>
           </div>
         </div>
         <%= f.hidden_field :from_web, value: true %>
