@@ -43,7 +43,6 @@ gem 'rpush', '~> 2.7'
 gem 'rails-i18n'
 # Monitoring
 gem 'rollbar'
-gem 'scout_apm'
 
 group :development, :test do
   gem 'byebug'
