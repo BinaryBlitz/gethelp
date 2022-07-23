@@ -29,7 +29,7 @@ gem 'phony_rails', '~> 0.14'
 gem 'enumerize', '~> 2.1'
 
 # Image processing
-gem 'carrierwave', '~> 0.11'
+gem 'carrierwave', '~> 1.0'
 gem 'carrierwave-base64', '~> 2.5'
 gem 'mini_magick', '~> 4.7'
 gem 'kaminari', '~> 1.0'
