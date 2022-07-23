@@ -57,6 +57,5 @@ group :development do
 end
 
 group :production do
-  gem 'rails_12factor'
   gem 'fog-aws', '~> 0.13'
 end
