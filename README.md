@@ -1,5 +1,7 @@
 # GetHelp
 
+![Screenshot](./screenshot.png)
+
 - Ruby version: see `.ruby-version`
 - System dependencies: `$ brew install postgresql imagemagick`
 - Configuration: `config/secrets.yml`
